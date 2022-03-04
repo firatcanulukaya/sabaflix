@@ -1,8 +1,26 @@
+import {useEffect, useState} from "react";
+import axios from "axios";
 import {LastContainer, LastContent, LastHeader, LastImg} from "./style";
 import {Container, Row} from "../../assets/style/styled";
 import rick from "../../assets/img/rick.png";
 
 const LastAdded = () => {
+    const [serverLink, setServerLink] = useState("http://1ff9-212-175-35-8.ngrok.io");
+    const [lastAdded, setLastAdded] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${serverLink}/content/last-added`)
+            .then(res => {
+                setLastAdded(res.data.message);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }, []);
+
+    console.log(lastAdded)
+
+
     return (
         <LastContainer>
             <Container>
@@ -11,25 +29,17 @@ const LastAdded = () => {
                 </Row>
 
                 <Row>
-                    <LastContent>
-                        <LastImg src={rick}/>
-                    </LastContent>
 
-                    <LastContent>
-                        <LastImg src={rick}/>
-                    </LastContent>
+                    {
+                        lastAdded.map((item, index) => {
+                            return (
+                                <LastContent key={index}>
+                                    <LastImg src={item.banner} alt={item.title}/>
+                                </LastContent>
+                            )
+                        })
+                    }
 
-                    <LastContent>
-                        <LastImg src={rick}/>
-                    </LastContent>
-
-                    <LastContent>
-                        <LastImg src={rick}/>
-                    </LastContent>
-
-                    <LastContent>
-                        <LastImg src={rick}/>
-                    </LastContent>
                 </Row>
             </Container>
         </LastContainer>
