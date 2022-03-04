@@ -41,9 +41,9 @@ export const ColFifty = styled.div`
   `};
 
   @media only screen and(max-width: 600px) {
-  width: 100%;
-  max-width: 100%;
-}
+    width: 100%;
+    max-width: 100%;
+  }
 
   @media only screen and (min-width: 600px) {
     width: 100%;
@@ -55,4 +55,9 @@ export const ColFifty = styled.div`
     max-width: 50%;
     height: 100vh;
   }
+`
+
+export const SabaflixLogo = styled.img`
+  width: 8%;
+  margin-bottom: .7rem;
 `
