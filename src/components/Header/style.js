@@ -89,8 +89,8 @@ export const HeaderButtonContainer = styled.div`
 `
 
 export const HeaderBtn = styled.a`
-  background: ${p => p.opacity ? colors.whiteOpacity : colors.white};
-  color: ${p => p.opacity ? colors.white : colors.secondaryColor};
+  background: ${p => p.isOpacity ? colors.whiteOpacity : colors.white};
+  color: ${p => p.isOpacity ? colors.white : colors.secondaryColor};
   padding: 10px 20px;
   border-radius: 4px;
   font-size: 22px;

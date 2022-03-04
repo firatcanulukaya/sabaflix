@@ -29,7 +29,7 @@ const Header = () => {
 
                 <HeaderButtonContainer>
                     <HeaderBtn> <HeaderBtnIcon src={shoppingBag}/> Buy</HeaderBtn>
-                    <HeaderBtn opacity={true}><HeaderBtnIcon src={infoIcon}/>More Info</HeaderBtn>
+                    <HeaderBtn isOpacity={true}><HeaderBtnIcon src={infoIcon}/>More Info</HeaderBtn>
                 </HeaderButtonContainer>
             </HeaderContentContainer>
         </HeaderContainer>
