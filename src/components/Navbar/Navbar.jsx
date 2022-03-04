@@ -2,7 +2,31 @@ import {Nav, NavHamburger, NavInput, NavLink, NavLinks, NavLogo, NavSearchBox} f
 import logo from "../assets/img/logo.svg";
 import hamburger from "../assets/img/hamburger.svg"
 
-const Navbar = ({navLinks}) => {
+const Navbar = () => {
+
+    const navLinks = [
+        {
+            name: 'Home',
+            link: '/'
+        },
+        {
+            name: 'Movies',
+            link: '/movies'
+        },
+        {
+            name: 'Series',
+            link: '/series'
+        },
+        {
+            name: "Last Added",
+            link: '/last-added'
+        },
+        {
+            name: "Most Popular",
+            link: '/most-popular'
+        }
+    ]
+
     return(
         <Nav>
             <NavHamburger>

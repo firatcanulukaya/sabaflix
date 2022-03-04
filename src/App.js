@@ -1,39 +1,12 @@
 import './assets/style/style.css';
-import Navbar from "./components/Navbar";
-import bg from "./assets/img/bg.png"
-import {HeaderBg, HeaderContainer} from "./assets/style/styled";
+import Navbar from "./components/Navbar/Navbar";
+import Header from "./components/Header/Header";
 
 const App = () => {
-
-    const navLinks = [
-        {
-            name: 'Home',
-            link: '/'
-        },
-        {
-            name: 'Movies',
-            link: '/movies'
-        },
-        {
-            name: 'Series',
-            link: '/series'
-        },
-        {
-            name: "Last Added",
-            link: '/last-added'
-        },
-        {
-            name: "Most Popular",
-            link: '/most-popular'
-        }
-    ]
-
   return (
     <>
-        <Navbar navLinks={navLinks}/>
-        <HeaderContainer>
-            <HeaderBg src={bg} alt={"Background"}/>
-        </HeaderContainer>
+        <Navbar/>
+        <Header/>
     </>
   );
 }
