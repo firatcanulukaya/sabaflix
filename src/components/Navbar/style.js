@@ -2,8 +2,7 @@ import styled from "styled-components";
 import {colors} from "../../assets/style/styled";
 
 export const Nav = styled.nav`
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0) 100%);
-  height: 60px;
+  background: linear-gradient(180deg, ${colors.secondaryColor}, rgba(0, 0, 0, 0) 100%);
   width: 100%;
   position: fixed;
   top: 0;
@@ -12,14 +11,11 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 0 0 30px;
+  padding: 30px 0 20px 30px;
+  transition: all 0.3s ease-in-out;
   
-  @media only screen and (max-width: 600px) {
-    height: 80px;
-  }
-  
-  @media only screen and (min-width: 600px) {
-    height: 80px;
+  &.active{
+    background: ${colors.secondaryColor};
   }
 `
 
