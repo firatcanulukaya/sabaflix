@@ -1,6 +1,6 @@
-import {Nav, NavHamburger, NavInput, NavLink, NavLinks, NavLogo, NavSearchBox} from "../assets/style/styled";
-import logo from "../assets/img/logo.svg";
-import hamburger from "../assets/img/hamburger.svg"
+import {Nav, NavHamburger, NavInput, NavLink, NavLinks, NavLogo, NavSearchBox} from "./style";
+import logo from "../../assets/img/logo.svg";
+import hamburger from "../../assets/img/hamburger.svg"
 
 const Navbar = () => {
 
