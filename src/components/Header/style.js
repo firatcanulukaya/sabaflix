@@ -7,6 +7,18 @@ export const HeaderContainer = styled.section`
   box-shadow: inset 670px -81px 134px rgba(0, 0, 0, 0.6);
   background-size: cover;
   position: relative;
+
+  @media (max-width: 768px) {
+    box-shadow: inset 370px -81px 134px rgba(0, 0, 0, 0.6);
+  }
+
+  @media (min-width: 768px) {
+    box-shadow: inset 370px -81px 134px rgba(0, 0, 0, 0.6);
+  }
+
+  @media (min-width: 992px) {
+    box-shadow: inset 670px -81px 134px rgba(0, 0, 0, 0.6);
+  }
 `
 
 export const HeaderContentContainer = styled.div`
@@ -16,6 +28,22 @@ export const HeaderContentContainer = styled.div`
   position: absolute;
   top: 30%;
   left: 5%;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
+  @media (min-width: 768px) {
+    width: 90%;
+  }
+
+  @media (min-width: 992px) {
+    width: 50%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 60%;
+  }
 `
 
 export const HeaderContent = styled.div`
@@ -27,6 +55,22 @@ export const HeaderContent = styled.div`
 
 export const HeaderContentImg = styled.img`
   width: 40%;
+
+  @media (max-width: 768px) {
+    width: 40%;
+  }
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+
+  @media (min-width: 992px) {
+    width: 70%;
+  }
+  
+  @media (min-width: 1200px) {
+    width: 40%;
+  }
 `
 
 export const HeaderDesc = styled.h1`
@@ -45,7 +89,7 @@ export const HeaderButtonContainer = styled.div`
 `
 
 export const HeaderBtn = styled.a`
-  background: ${ p => p.opacity ?  colors.whiteOpacity : colors.white };
+  background: ${p => p.opacity ? colors.whiteOpacity : colors.white};
   color: ${p => p.opacity ? colors.white : colors.secondaryColor};
   padding: 10px 20px;
   border-radius: 4px;
@@ -55,11 +99,35 @@ export const HeaderBtn = styled.a`
   transition: all 0.3s ease-in-out;
   font-family: "Netflix Sans Medium", sans-serif;
   display: flex;
-  justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 22px;
+  }
 `
 
 export const HeaderBtnIcon = styled.img`
   width: 30px;
   margin-right: 10px;
+
+  @media (max-width: 768px) {
+    width: 20px;
+  }
+
+  @media (min-width: 768px) {
+    width: 25px;
+  }
+
+  @media (min-width: 992px) {
+    width: 30px;
+  }
+
 `

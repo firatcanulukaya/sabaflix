@@ -60,4 +60,20 @@ export const ColFifty = styled.div`
 export const SabaflixLogo = styled.img`
   width: 8%;
   margin-bottom: .7rem;
+
+  @media (max-width: 768px) {
+    width: 12%;
+  }
+
+  @media (min-width: 768px) {
+    width: 10%;
+  }
+
+  @media (min-width: 992px) {
+    width: 17%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 7%;
+  }
 `
