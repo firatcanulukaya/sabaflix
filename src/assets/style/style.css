@@ -7,6 +7,16 @@
   list-style: none;
   text-decoration: none;
   scroll-behavior: smooth;
+  background: none;
+}
+
+html {
+  background: #141414 !important;
+}
+
+@font-face {
+  font-family: "NSMedium";
+  src: url("../fonts/NetflixSansMedium.ttf");
 }
 
 /*# sourceMappingURL=style.css.map */
