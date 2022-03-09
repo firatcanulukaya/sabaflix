@@ -31,13 +31,18 @@ const LastAdded = () => {
                 <Row>
 
                     {
-                        lastAdded.map((item, index) => {
-                            return (
-                                <LastContent key={index}>
-                                    <LastImg src={item.banner} alt={item.title}/>
-                                </LastContent>
-                            )
-                        })
+                        lastAdded.length > 0 ?
+                            lastAdded.map((item, index) => {
+                                return (
+                                    <LastContent key={index}>
+                                        <LastImg src={item.banner} alt={item.title}/>
+                                    </LastContent>
+                                )
+                            })
+                            :
+                            <LastContent>
+                                <LastHeader>Nothing to show.</LastHeader>
+                            </LastContent>
                     }
 
                 </Row>
