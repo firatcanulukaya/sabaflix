@@ -3,8 +3,7 @@ import axios from "axios";
 import {LastContainer, LastContent, LastContentContainer, LastHeader, LastImg} from "./style";
 import {Container, Row} from "../../assets/style/styled";
 
-const LastAdded = () => {
-    const [serverLink, setServerLink] = useState("http://7d12-212-175-35-8.ngrok.io");
+const LastAdded = ({serverLink}) => {
     const [lastAdded, setLastAdded] = useState([]);
 
     useEffect(() => {

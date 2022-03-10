@@ -14,8 +14,7 @@ import {SabaflixLogo} from "../../assets/style/styled";
 import shoppingBag from "../../assets/img/shoppingBag.svg";
 import infoIcon from "../../assets/img/info.svg"
 
-const Header = () => {
-    const [serverLink, setServerLink] = useState("http://7d12-212-175-35-8.ngrok.io");
+const Header = ({serverLink}) => {
     const [content, setContent] = useState([]);
 
     useEffect(() => {
