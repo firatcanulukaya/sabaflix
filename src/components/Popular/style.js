@@ -17,18 +17,18 @@ export const PopularHeader = styled.h1`
 
 export const PopularOverflow = styled.div`
   display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
+  position: relative;
 `
 
 export const PopularContent = styled.div`
   width: 100%;
   max-width: 20%;
-  margin-right: 1rem;
-  margin-left: 8rem;
+  margin-left: 10rem;
   display: flex;
   justify-content: center;
   position: relative;
+  transition: all 0.4s ease-in-out;
 `
 
 export const PopularContentContainer = styled.div`
@@ -60,4 +60,29 @@ export const PopularImg = styled.img`
   object-position: center;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+`
+
+export const SliderBtn = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  z-index: 30;
+  cursor: pointer;
+   background: linear-gradient(180deg, ${colors.secondaryColor}, rgba(0, 0, 0, 0) 100%);
+  
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+`
+
+export const SliderBtnIcon = styled.img`
+  width: 100%;
+`
+
+export const SliderBtnContainer = styled.div`
 `
