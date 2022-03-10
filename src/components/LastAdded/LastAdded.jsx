@@ -1,11 +1,12 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {LastContainer, LastContent, LastHeader, LastImg} from "./style";
+import {LastContainer, LastContent, LastContentContainer, LastHeader, LastImg} from "./style";
 import {Container, Row} from "../../assets/style/styled";
 import rick from "../../assets/img/rick.png";
+import twd from "../../assets/img/twd.jpg"
 
 const LastAdded = () => {
-    const [serverLink, setServerLink] = useState("http://1ff9-212-175-35-8.ngrok.io");
+    const [serverLink, setServerLink] = useState("http://7d12-212-175-35-8.ngrok.io");
     const [lastAdded, setLastAdded] = useState([]);
 
     useEffect(() => {
@@ -17,9 +18,6 @@ const LastAdded = () => {
                 console.log(err);
             });
     }, []);
-
-    console.log(lastAdded)
-
 
     return (
         <LastContainer>
@@ -35,7 +33,9 @@ const LastAdded = () => {
                             lastAdded.map((item, index) => {
                                 return (
                                     <LastContent key={index}>
-                                        <LastImg src={item.banner} alt={item.title}/>
+                                        <LastContentContainer>
+                                            <LastImg src={item.banner} alt={item.title}/>
+                                        </LastContentContainer>
                                     </LastContent>
                                 )
                             })

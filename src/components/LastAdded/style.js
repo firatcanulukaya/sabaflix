@@ -23,47 +23,39 @@ export const LastContent = styled.div`
   justify-content: center;
   
   @media (max-width: 768px) {
-    max-width: 100%;
-  }
-  
-  @media (min-width: 768px) {
-    max-width: 100%;
-  }
-  
-  @media (min-width: 992px) {
     max-width: 50%;
   }
   
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
+    max-width: 33%;
+  }
+  
+  @media (min-width: 992px) {
     max-width: 25%;
+  }
+  
+  @media (min-width: 1200px) {
+    max-width: 20%;
   }
   
 `
 
+export const LastContentContainer = styled.div`
+    width: 200px;
+    height: 300px;
+`
+
 export const LastImg = styled.img`
-  width: 80%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+  opacity: 0.8;
   
   &:hover {
-    opacity: 0.8;
-  }
-
-  @media (max-width: 768px) {
-    max-width: 50%;
-  }
-
-  @media (min-width: 768px) {
-    max-width: 60%;
-  }
-
-  @media (min-width: 992px) {
-    width: 80%;
-  }
-
-  @media (min-width: 1200px) {
-    width: 80%;
+    opacity: 1;
+    transform: scale(1.3);
   }
 `
