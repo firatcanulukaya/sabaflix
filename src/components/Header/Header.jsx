@@ -1,3 +1,5 @@
+import {useEffect, useState} from "react";
+import axios from "axios";
 import {
     HeaderBtn, HeaderBtnIcon,
     HeaderButtonContainer,
@@ -6,8 +8,6 @@ import {
     HeaderContentContainer,
     HeaderContentImg, HeaderDesc
 } from "./style";
-import bg from "../../assets/img/bg2.jpg";
-import contentLogo from "../../assets/img/lcdpLogo.png"
 import sabaflixOriginal from "../../assets/img/original.svg"
 import sabaflixSeries from "../../assets/img/series.svg"
 import {SabaflixLogo} from "../../assets/style/styled";
@@ -15,16 +15,29 @@ import shoppingBag from "../../assets/img/shoppingBag.svg";
 import infoIcon from "../../assets/img/info.svg"
 
 const Header = () => {
+    const [serverLink, setServerLink] = useState("http://7d12-212-175-35-8.ngrok.io");
+    const [content, setContent] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${serverLink}/content/most-popular`)
+            .then(res => {
+                setContent(res.data.message);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, []);
+
+
     return (
-        <HeaderContainer bg={bg}>
+        <HeaderContainer bg={content.background}>
             <HeaderContentContainer>
                 <HeaderContent>
-                    <SabaflixLogo src={sabaflixSeries}/>
-                    <HeaderContentImg src={contentLogo} alt={"Logo"}/>
+                    <SabaflixLogo src={content.isSeries ? sabaflixSeries : sabaflixOriginal}/>
+                    <HeaderContentImg src={content.titleLogo} alt={"Logo"}/>
                 </HeaderContent>
                 <HeaderDesc>
-                    Eight thieves take hostages and lock themselves in the Royal Mint of Spain as a criminal mastermind
-                    manipulates the police to carry out his plan.
+                    {content.description}
                 </HeaderDesc>
 
                 <HeaderButtonContainer>
