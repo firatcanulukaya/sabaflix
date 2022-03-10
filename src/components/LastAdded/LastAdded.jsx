@@ -2,8 +2,6 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {LastContainer, LastContent, LastContentContainer, LastHeader, LastImg} from "./style";
 import {Container, Row} from "../../assets/style/styled";
-import rick from "../../assets/img/rick.png";
-import twd from "../../assets/img/twd.jpg"
 
 const LastAdded = () => {
     const [serverLink, setServerLink] = useState("http://7d12-212-175-35-8.ngrok.io");
