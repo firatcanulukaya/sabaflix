@@ -25,11 +25,31 @@ export const PopularOverflow = styled.div`
 export const PopularContent = styled.div`
   width: 100%;
   max-width: 20%;
-  margin-left: 10rem;
+  margin-left: 7rem;
   display: flex;
   justify-content: center;
   position: relative;
   transition: all 0.4s ease-in-out;
+
+  @media (max-width: 768px) {
+    max-width: 50%;
+    margin-left: 8rem;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 33%;
+    margin-left: 7rem;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 25%;
+    margin-left: 6rem;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 20%;
+    margin-left: 9%;
+  }
 `
 
 export const PopularContentContainer = styled.div`
@@ -40,7 +60,7 @@ export const PopularContentContainer = styled.div`
     content: "${props => props.indexID + 1}";
     position: absolute;
     color: ${colors.secondaryColor};
-    font-size: calc(0.74 * 40vmin);
+    font-size: calc(0.74 * 50vmin);
     line-height: 0.7;
     bottom: 1rem;
     font-weight: bold;
@@ -49,7 +69,7 @@ export const PopularContentContainer = styled.div`
     -webkit-text-stroke: 0.5vmin ${colors.white};
     text-shadow: 1vmin 0 4vmin ${colors.secondaryColor};
     transform: translate(-100%, 0);
-    z-index: -1;
+    z-index: -5;
     font-family: "Netflix Sans", sans-serif;
   }
 `
