@@ -1,22 +1,29 @@
 import {useState} from "react";
 import './assets/style/style.css';
 import Navbar from "./components/Navbar/Navbar";
-import Header from "./components/Header/Header";
-import LastAdded from "./components/LastAdded/LastAdded";
 import Footer from "./components/Footer/Footer";
-import Popular from "./components/Popular/Popular";
+import Homepage from "./components/Homepage";
+import ListAll from "./components/ListAll/ListAll";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+} from "react-router-dom";
 
 const App = () => {
     const [serverLink, setServerLink] = useState("http://10.80.0.168:8080");
-  return (
-    <>
-        <Navbar/>
-        <Header serverLink={serverLink}/>
-        <Popular serverLink={serverLink}/>
-        <LastAdded serverLink={serverLink}/>
-        <Footer/>
-    </>
-  );
+    return (
+        <>
+            <Navbar/>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Homepage serverLink={serverLink}/>}/>
+                    <Route path="/all" element={<ListAll/>}/>
+                </Routes>
+            </BrowserRouter>
+            <Footer/>
+        </>
+    );
 }
 
 export default App;
