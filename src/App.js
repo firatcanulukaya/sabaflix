@@ -18,7 +18,7 @@ const App = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Homepage serverLink={serverLink}/>}/>
-                    <Route path="/all" element={<ListAll/>}/>
+                    <Route path="/all" element={<ListAll serverLink={serverLink}/>}/>
                 </Routes>
             </BrowserRouter>
             <Footer/>
