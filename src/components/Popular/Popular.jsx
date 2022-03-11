@@ -14,7 +14,6 @@ import {
 import {Container, Row} from "../../assets/style/styled";
 import arrowRight from "../../assets/img/ArrowRight.svg";
 import arrowLeft from "../../assets/img/ArrowLeft.svg";
-import useMediaQuery from "../hooks/useMediaQuery";
 
 const Popular = ({serverLink}) => {
     const [mostPopular, setMostPopular] = useState([]);
@@ -31,11 +30,11 @@ const Popular = ({serverLink}) => {
     const wrap = document.getElementById('wrapper')
     const [scroll, setScroll] = useState([{perClick: 0, amount: 0}]);
 
-    const scrollLeft = () => {
+    const scrollRight = () => {
         console.log("sad")
         wrap.scrollTo({
             top: 0,
-            left: (scroll.amount -= scroll.perClick),
+            left: 500,
             behavior: "smooth"
         })
         if (scroll.amount < 0) {
@@ -43,11 +42,11 @@ const Popular = ({serverLink}) => {
         }
     }
 
-    const scrollRight = () => {
+    const scrollLeft = () => {
         if (scroll.amount <= wrap.scrollWidth - wrap.clientWidth) {
             wrap.scrollTo({
                 top: 0,
-                left: (scroll.amount += scroll.perClick),
+                left: 0,
                 behavior: "smooth"
             })
         }
@@ -61,11 +60,11 @@ const Popular = ({serverLink}) => {
                     <PopularHeader>Popular on Sabaflix</PopularHeader>
                 </Row>
                 <Row>
-                    <SliderBtn className="left" onClick={() => scrollRight()}>
+                    <SliderBtn className="left" onClick={() => scrollLeft()}>
                         <SliderBtnIcon src={arrowLeft} alt="Arrow" id={"left"}/>
                     </SliderBtn>
 
-                    <SliderBtn className="right" onClick={() => scrollLeft()}>
+                    <SliderBtn className="right" onClick={() => scrollRight()}>
                         <SliderBtnIcon src={arrowRight} alt="Arrow" id={"right"}/>
                     </SliderBtn>
 
