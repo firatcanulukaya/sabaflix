@@ -8,7 +8,6 @@ import {
     PopularImg,
     PopularOverflow,
     SliderBtn,
-    SliderBtnContainer,
     SliderBtnIcon
 } from "./style";
 import {Container, Row} from "../../assets/style/styled";
