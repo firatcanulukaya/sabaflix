@@ -12,19 +12,23 @@ const Navbar = () => {
         },
         {
             name: 'Movies',
-            link: '/movies'
+            link: '/'
         },
         {
             name: 'Series',
-            link: '/series'
+            link: '/'
         },
         {
             name: "Last Added",
-            link: '/last-added'
+            link: '#lastAdded'
         },
         {
             name: "Most Popular",
-            link: '/most-popular'
+            link: '#mostPopular'
+        },
+        {
+            name: "All",
+            link: '/all'
         }
     ]
 
