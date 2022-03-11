@@ -4,12 +4,12 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 const List = ({serverLink}) => {
-    const [listAll, setListAlll] = useState([]);
+    const [listAll, setListAll] = useState([]);
 
     useEffect(() => {
         axios.get(`${serverLink}/content/`)
             .then(res => {
-                setListAlll(res.data.message);
+                setListAll(res.data.message);
             })
             .catch(err => {
                 console.log(err);
