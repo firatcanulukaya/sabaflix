@@ -6,6 +6,7 @@ export const PopularContainer = styled.section`
   height: 100%;
   display: flex;
   padding: 2rem;
+  position: relative;
 `
 
 export const PopularHeader = styled.h1`
@@ -66,11 +67,11 @@ export const SliderBtn = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  height: 100%;
+  height: 50%;
   z-index: 30;
   cursor: pointer;
-   background: linear-gradient(180deg, ${colors.secondaryColor}, rgba(0, 0, 0, 0) 100%);
-  
+  background: linear-gradient(180deg, ${colors.secondaryColor}, rgba(0, 0, 0, 0) 100%);
+
   &.left {
     left: 0;
   }
@@ -82,7 +83,4 @@ export const SliderBtn = styled.button`
 
 export const SliderBtnIcon = styled.img`
   width: 100%;
-`
-
-export const SliderBtnContainer = styled.div`
 `

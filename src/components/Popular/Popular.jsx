@@ -9,17 +9,15 @@ import {
     PopularOverflow,
     SliderBtn,
     SliderBtnContainer,
-    SliderBtnIcon,
-    SliderBtnLeft,
-    SliderBtnRight
+    SliderBtnIcon
 } from "./style";
 import {Container, Row} from "../../assets/style/styled";
 import arrowRight from "../../assets/img/ArrowRight.svg";
 import arrowLeft from "../../assets/img/ArrowLeft.svg";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const Popular = ({serverLink}) => {
     const [mostPopular, setMostPopular] = useState([]);
-
     useEffect(() => {
         axios.get(`${serverLink}/content/popular`)
             .then(res => {
@@ -30,42 +28,30 @@ const Popular = ({serverLink}) => {
             })
     }, []);
 
-    let movePer = 0;
-    let maxPer = 0;
+    const wrap = document.getElementById('wrapper')
+    const [scroll, setScroll] = useState([{perClick: 0, amount: 0}]);
 
-    const handleClick = (e) => {
-        const sliderContent = document.querySelectorAll("#content");
-        const slideWidth = document.querySelector("#content");
-        const wrapperWidth = document.querySelector("#wrapper");
-        let totalCarousel = sliderContent.length;
-        movePer = movePer + slideWidth.clientWidth;
-        maxPer = (totalCarousel - wrapperWidth.clientWidth / slideWidth.clientWidth) * slideWidth.clientWidth;
-
-        if (e.target.id === "right") {
-            if (movePer > maxPer) {
-                movePer = 0;
-                console.log("calis")
-                sliderContent.forEach(slider => {
-                    slider.style.transform = "translateX(-" + movePer + "px)";
-                });
-
-            } else {
-                console.log("calistim")
-                sliderContent.forEach(slider => {
-                    slider.style.transform = "translateX(-" + movePer + "px)";
-                });
-            }
-
-        } else if (e.target.id === "left") {
-            if (movePer < 0) {
-                movePer = 0;
-            } else {
-                sliderContent.forEach(slider => {
-                    slider.style.transform = "translateX(-" + movePer + "px)";
-                });
-            }
+    const scrollLeft = () => {
+        console.log("sad")
+        wrap.scrollTo({
+            top: 0,
+            left: (scroll.amount -= scroll.perClick),
+            behavior: "smooth"
+        })
+        if (scroll.amount < 0) {
+            setScroll([{...scroll, amount: 0}])
         }
-    };
+    }
+
+    const scrollRight = () => {
+        if (scroll.amount <= wrap.scrollWidth - wrap.clientWidth) {
+            wrap.scrollTo({
+                top: 0,
+                left: (scroll.amount += scroll.perClick),
+                behavior: "smooth"
+            })
+        }
+    }
 
     return (
 
@@ -74,19 +60,16 @@ const Popular = ({serverLink}) => {
                 <Row>
                     <PopularHeader>Popular on Sabaflix</PopularHeader>
                 </Row>
-
                 <Row>
+                    <SliderBtn className="left" onClick={() => scrollRight()}>
+                        <SliderBtnIcon src={arrowLeft} alt="Arrow" id={"left"}/>
+                    </SliderBtn>
+
+                    <SliderBtn className="right" onClick={() => scrollLeft()}>
+                        <SliderBtnIcon src={arrowRight} alt="Arrow" id={"right"}/>
+                    </SliderBtn>
+
                     <PopularOverflow id={"wrapper"}>
-
-                        <SliderBtnContainer>
-                            <SliderBtn className="left" onClick={e => handleClick(e)}>
-                                <SliderBtnIcon src={arrowLeft} alt="Arrow" id={"left"}/>
-                            </SliderBtn>
-
-                            <SliderBtn className="right" onClick={e => handleClick(e)}>
-                                <SliderBtnIcon src={arrowRight} alt="Arrow" id={"right"}/>
-                            </SliderBtn>
-                        </SliderBtnContainer>
                         {
                             mostPopular.length > 0 ?
                                 mostPopular.map((item, index) => {
