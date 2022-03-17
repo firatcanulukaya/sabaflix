@@ -8,27 +8,34 @@ const Navbar = () => {
     const navLinks = [
         {
             name: 'Home',
-            link: '/'
+            link: '/',
+            disabled: false
         },
         {
             name: 'Movies',
-            link: '/'
+            link: '/',
+            disabled: true
         },
         {
             name: 'Series',
-            link: '/'
+            link: '/',
+            disabled: true
         },
         {
             name: "Last Added",
-            link: '#lastAdded'
+            link: '#lastAdded',
+            disabled: false
+
         },
         {
             name: "Most Popular",
-            link: '#mostPopular'
+            link: '#mostPopular',
+            disabled: false
         },
         {
             name: "All",
-            link: '/all'
+            link: '/all',
+            disabled: false
         }
     ]
 
@@ -51,7 +58,7 @@ const Navbar = () => {
             <NavLogo>
                 <img src={logo} alt={"Sabaflix Logo"}/>
                 <NavLinks>
-                    {navLinks.map((link, index) => <NavLink href={link.link} key={index}>{link.name}</NavLink> )}
+                    {navLinks.map((item, index) => <NavLink href={item.link} key={index} disabled={item.disabled}>{item.name}</NavLink> )}
                 </NavLinks>
             </NavLogo>
             <NavSearchBox>

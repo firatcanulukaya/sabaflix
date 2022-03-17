@@ -85,6 +85,18 @@ export const NavLink = styled.a`
   &:hover {
     color: ${colors.primaryColor};
   }
+  
+  ${
+    props => {
+        if(props.disabled){
+            return`
+            cursor: not-allowed;
+            color: ${colors.textPrimary};
+            pointer-events: none;
+            `
+        }
+    }
+  }
 
   @media only screen and (max-width: 600px) {
   display: none;
