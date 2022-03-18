@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
-import axios from "axios";
+import {useSelector, useDispatch} from "react-redux";
+import {getPopular} from "../../redux/actions/popular";
 import {
     PopularContainer,
     PopularContent,
@@ -14,17 +15,16 @@ import {Container, Row} from "../../assets/style/styled";
 import arrowRight from "../../assets/img/ArrowRight.svg";
 import arrowLeft from "../../assets/img/ArrowLeft.svg";
 
-const Popular = ({serverLink}) => {
-    const [mostPopular, setMostPopular] = useState([]);
-    useEffect(() => {
-        axios.get(`${serverLink}/content/popular`)
-            .then(res => {
-                setMostPopular(res.data.message);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }, []);
+const Popular = () => {
+    const {serverLink} = useSelector(state => state.util);
+    const dispatch = useDispatch();
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //          await dispatch(getPopular())
+    //     };
+    //     fetchData();
+    // }, []);
+    const {content} = useSelector(state => state.popular);
 
     const wrap = document.getElementById('wrapper')
     const [scroll, setScroll] = useState([{perClick: 0, amount: 0}]);
@@ -69,8 +69,8 @@ const Popular = ({serverLink}) => {
 
                     <PopularOverflow id={"wrapper"}>
                         {
-                            mostPopular.length > 0 ?
-                                mostPopular.map((item, index) => {
+                            content.length > 0 ?
+                                content.map((item, index) => {
                                     return (
                                         <PopularContent key={index} id="content">
                                             <PopularContentContainer indexID={index}>

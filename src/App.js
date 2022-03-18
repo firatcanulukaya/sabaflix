@@ -10,14 +10,13 @@ import {
 } from "react-router-dom";
 
 const App = () => {
-    const serverLink = "http://10.80.0.168:8080";
     return (
         <>
             <Navbar/>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Homepage serverLink={serverLink}/>}/>
-                    <Route path="/all" element={<ListAll serverLink={serverLink}/>}/>
+                    <Route path="/" element={<Homepage/>}/>
+                    <Route path="/all" element={<ListAll/>}/>
                 </Routes>
             </BrowserRouter>
             <Footer/>

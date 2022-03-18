@@ -1,20 +1,20 @@
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useEffect} from "react";
 import {LastContainer, LastContent, LastContentContainer, LastHeader, LastImg} from "./style";
 import {Container, Row} from "../../assets/style/styled";
+import {useSelector, useDispatch} from "react-redux";
+import {getLastAdded} from "../../redux/actions/lastAdded";
 
-const LastAdded = ({serverLink}) => {
-    const [lastAdded, setLastAdded] = useState([]);
-
-    useEffect(() => {
-        axios.get(`${serverLink}/content/last-added`)
-            .then(res => {
-                setLastAdded(res.data.message);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }, []);
+const LastAdded = () => {
+    const {serverLink} = useSelector(state => state.util);
+    const dispatch = useDispatch();
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         await dispatch(getLastAdded());
+    //     };
+    //     fetchData();
+    // }, []);
+    const { content } = useSelector(state => state.lastAdded);
+    console.log(content)
 
     return (
         <LastContainer>
@@ -26,8 +26,8 @@ const LastAdded = ({serverLink}) => {
                 <Row>
 
                     {
-                        lastAdded.length > 0 ?
-                            lastAdded.map((item, index) => {
+                        content.length > 0 ?
+                            content.map((item, index) => {
                                 return (
                                     <LastContent key={index}>
                                         <LastContentContainer>

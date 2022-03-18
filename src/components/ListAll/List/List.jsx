@@ -1,22 +1,20 @@
 import {ListContainer, ListContent, ListContentContainer, ListHeader, ListImg} from "./style";
 import {Container, Row} from "../../../assets/style/styled";
 import {useEffect, useState} from "react";
-import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import {getAllContent} from "../../../redux/actions/contentAll";
 
-const List = ({serverLink}) => {
-    const [listAll, setListAll] = useState([]);
+const List = () => {
+    const dispatch = useDispatch();
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         await dispatch(getAllContent());
+    //     };
+    //     fetchData();
+    // }, []);
+    const {content} = useSelector(state => state.contentAll);
 
-    useEffect(() => {
-        axios.get(`${serverLink}/content/`)
-            .then(res => {
-                setListAll(res.data.message);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }, []);
-
-    return(
+    return (
         <ListContainer>
             <Container>
                 <Row>
@@ -24,8 +22,8 @@ const List = ({serverLink}) => {
                 </Row>
                 <Row>
                     {
-                        listAll.length > 0 ?
-                            listAll.map((item, index) => {
+                        content.length > 0 ?
+                            content.map((item, index) => {
                                 return (
                                     <ListContent key={index}>
                                         <ListContentContainer>

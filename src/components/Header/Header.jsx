@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useSelector, useDispatch} from "react-redux";
 import {
     HeaderBtn, HeaderBtnIcon,
     HeaderButtonContainer,
@@ -14,8 +15,9 @@ import {SabaflixLogo} from "../../assets/style/styled";
 import shoppingBag from "../../assets/img/shoppingBag.svg";
 import infoIcon from "../../assets/img/info.svg"
 
-const Header = ({serverLink}) => {
+const Header = () => {
     const [content, setContent] = useState([]);
+    const {serverLink} = useSelector(state => state.util);
 
     useEffect(() => {
         axios.get(`${serverLink}/content/most-popular`)

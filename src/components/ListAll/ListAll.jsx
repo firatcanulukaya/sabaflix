@@ -3,7 +3,7 @@ import List from "./List/List";
 import {AllContainer, ColForty, ColSixty} from "./style";
 import {Container, Row} from "../../assets/style/styled";
 
-const ListAll = ({serverLink}) => {
+const ListAll = () => {
     return (
         <AllContainer>
             <Container>
@@ -13,7 +13,7 @@ const ListAll = ({serverLink}) => {
                     </ColForty>
 
                     <ColSixty>
-                        <List serverLink={serverLink}/>
+                        <List />
                     </ColSixty>
                 </Row>
             </Container>
