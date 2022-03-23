@@ -77,3 +77,10 @@ export const SabaflixLogo = styled.img`
     width: 7%;
   }
 `
+
+export const Loading = styled.h1`
+  font-size: 2rem;
+  color: ${colors.white};
+  margin-bottom: 1rem;
+  font-family: "Netflix Sans", sans-serif;
+`
