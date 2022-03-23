@@ -11,25 +11,21 @@ import {
 } from "./style";
 import sabaflixOriginal from "../../assets/img/original.svg"
 import sabaflixSeries from "../../assets/img/series.svg"
-import {SabaflixLogo} from "../../assets/style/styled";
+import {Loading, SabaflixLogo} from "../../assets/style/styled";
 import shoppingBag from "../../assets/img/shoppingBag.svg";
 import infoIcon from "../../assets/img/info.svg"
+import {getHeader} from "../../redux/actions/header";
 
 const Header = () => {
-    const [content, setContent] = useState([]);
+    const dispatch = useDispatch();
     const {serverLink} = useSelector(state => state.util);
+    const {content} = useSelector(state => state.header);
 
-    useEffect(() => {
-        axios.get(`${serverLink}/content/most-popular`)
-            .then(res => {
-                setContent(res.data.message);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }, []);
+    // useEffect(() => {
+    //     dispatch(getHeader());
+    // }, []);
 
-
+    if(content === null || undefined || 'Failed to fetch') return <Loading>Loading...</Loading>
     return (
         <HeaderContainer bg={content.background}>
             <HeaderContentContainer>

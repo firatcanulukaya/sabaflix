@@ -14,3 +14,6 @@ export const GET_LAST_ADDED = 'GET_LAST_ADDED';
 
 //POPULAR
 export const GET_POPULAR = 'GET_POPULAR';
+
+//HEADER
+export const GET_HEADER = 'GET_HEADER';
