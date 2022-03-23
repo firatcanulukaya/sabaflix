@@ -1,12 +1,7 @@
-import {useEffect, useState} from 'react';
-import {useSelector, useDispatch} from "react-redux";
-import {getPopular} from "../../redux/actions/popular";
+import {useState} from 'react';
 import {
     PopularContainer,
-    PopularContent,
-    PopularContentContainer,
     PopularHeader,
-    PopularImg,
     PopularOverflow,
     SliderBtn,
     SliderBtnIcon
@@ -14,18 +9,9 @@ import {
 import {Container, Row} from "../../assets/style/styled";
 import arrowRight from "../../assets/img/ArrowRight.svg";
 import arrowLeft from "../../assets/img/ArrowLeft.svg";
+import PopularItem from "./PopularItem";
 
 const Popular = () => {
-    const {serverLink} = useSelector(state => state.util);
-    const dispatch = useDispatch();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //          await dispatch(getPopular())
-    //     };
-    //     fetchData();
-    // }, []);
-    const {content} = useSelector(state => state.popular);
-
     const wrap = document.getElementById('wrapper')
     const [scroll, setScroll] = useState([{perClick: 0, amount: 0}]);
 
@@ -68,22 +54,7 @@ const Popular = () => {
                     </SliderBtn>
 
                     <PopularOverflow id={"wrapper"}>
-                        {
-                            content.length > 0 ?
-                                content.map((item, index) => {
-                                    return (
-                                        <PopularContent key={index} id="content">
-                                            <PopularContentContainer indexID={index}>
-                                                <PopularImg src={item.banner} alt={item.title}/>
-                                            </PopularContentContainer>
-                                        </PopularContent>
-                                    )
-                                })
-                                :
-                                <PopularContent>
-                                    <PopularHeader>Nothing to show.</PopularHeader>
-                                </PopularContent>
-                        }
+                        <PopularItem/>
                     </PopularOverflow>
                 </Row>
             </Container>

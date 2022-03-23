@@ -1,18 +1,12 @@
 import {ListContainer, ListContent, ListContentContainer, ListHeader, ListImg} from "./style";
 import {Container, Row} from "../../../assets/style/styled";
-import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllContent} from "../../../redux/actions/contentAll";
 
 const List = () => {
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         await dispatch(getAllContent());
-    //     };
-    //     fetchData();
-    // }, []);
     const {content} = useSelector(state => state.contentAll);
+    // dispatch(getAllContent());
 
     return (
         <ListContainer>
