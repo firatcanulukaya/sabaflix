@@ -2,7 +2,7 @@ import {useSelector} from "react-redux";
 import axios from "axios";
 import {GET_POPULAR} from "../types";
 
-export const getPopular = (data) => dispatch => {
+export const getPopular = () => dispatch => {
     const {serverLink} = useSelector(state => state.util);
     try {
         axios.get(`${serverLink}/content/popular`)

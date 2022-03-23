@@ -2,7 +2,7 @@ import {useSelector} from "react-redux";
 import axios from "axios";
 import {GET_LAST_ADDED} from "../types";
 
-export const getLastAdded = (data) => dispatch => {
+export const getLastAdded = () => dispatch => {
     const {serverLink} = useSelector(state => state.util);
     try {
         axios.get(`${serverLink}/content/last-added`)
