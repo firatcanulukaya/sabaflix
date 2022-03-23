@@ -1,7 +1,7 @@
 import {GET_ALL_CONTENT} from "../types";
 
 const initial_state = {
-    content: {},
+    content: null,
 }
 
 const reducer = (state = initial_state, action) => {

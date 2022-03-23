@@ -1,7 +1,7 @@
 import {GET_POPULAR} from "../types";
 
 const initial_state = {
-    content: {},
+    content: null,
 }
 
 const reducer = (state = initial_state, action) => {
