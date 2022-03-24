@@ -1,16 +1,16 @@
-import {useSelector} from "react-redux";
 import axios from "axios";
 import {GET_POPULAR} from "../types";
 
 export const getPopular = () => dispatch => {
-    const {serverLink} = useSelector(state => state.util);
     try {
-        axios.get(`${serverLink}/content/popular`)
+        axios.get(`http://10.80.0.168:8080/content/popular`)
             .then(res => {
-                dispatch({
-                    type: GET_POPULAR,
-                    payload: res.data.message
-                })
+                if (res.status === 200) {
+                    dispatch({
+                        type: GET_POPULAR,
+                        payload: res.data.message
+                    });
+                }
             })
     } catch (err) {
         console.log(err)

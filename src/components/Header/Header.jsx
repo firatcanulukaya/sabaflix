@@ -17,14 +17,16 @@ import {getHeader} from "../../redux/actions/header";
 
 const Header = () => {
     const dispatch = useDispatch();
-    const {serverLink} = useSelector(state => state.util);
     const {content} = useSelector(state => state.header);
 
-    // useEffect(() => {
-    //     dispatch(getHeader());
-    // }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(getHeader());
+        };
+        fetchData()
+    }, [dispatch]);
 
-    if(content === null || undefined || 'Failed to fetch') return <Loading>Loading...</Loading>
+    if (content === null || undefined) return <Loading>Loading...</Loading>
     return (
         <HeaderContainer bg={content.background}>
             <HeaderContentContainer>

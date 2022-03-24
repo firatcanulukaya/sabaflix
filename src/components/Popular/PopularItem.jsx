@@ -8,11 +8,14 @@ const PopularItem = () => {
     const dispatch = useDispatch();
     const {content} = useSelector(state => state.popular);
 
-    // useEffect(() => {
-    //     dispatch(getPopular())
-    // }, [dispatch]);
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(getPopular());
+        };
+        fetchData()
+    }, [dispatch]);
 
-    if(content === null || undefined || 'Failed to fetch') return <Loading>Loading...</Loading>
+    if(content === null || undefined) return <Loading>Loading...</Loading>
     return(
         <>
             {
