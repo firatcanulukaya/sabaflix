@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {colors} from "../../../assets/style/styled";
 
 export const CategoriesContainer = styled.div`
-  min-height: 2000px;
+  min-height: ${props => props.height ? `${props.height}px` : "100vh"};
   position: relative;
 `;
 

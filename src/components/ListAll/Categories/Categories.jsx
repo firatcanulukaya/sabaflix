@@ -1,18 +1,21 @@
-import {useState, useEffect} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import {
     CategoriesContainer,
-    CategoriesList, CategoryArrow,
-    CategoryHeader, CategoryItems, CategoryLi, CategoryUl,
+    CategoriesList,
+    CategoryArrow,
+    CategoryHeader,
+    CategoryItems,
+    CategoryLi,
+    CategoryUl,
     CatSticky,
-    CatStickySubTitle,
     CatStickyTitle
 } from "./style";
 import arrow from "../../../assets/img/ArrowDown.svg"
-import {Loading} from "../../../assets/style/styled";
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
+    const [categoryHeight, setCategoryHeight] = useState(0);
     useEffect(() => {
         axios.get("http://10.80.0.168:8080/contentCategory")
             .then(res => {
@@ -22,8 +25,14 @@ const Categories = () => {
             })
     }, []);
 
+    useEffect(() => {
+        setTimeout(() => {
+            setCategoryHeight(document.getElementById("list").clientHeight / 2 + 500);
+        }, 200)
+    }, []);
+
     return (
-        <CategoriesContainer>
+        <CategoriesContainer height={categoryHeight}>
             <CatSticky>
 
 
@@ -42,7 +51,7 @@ const Categories = () => {
 
                         {
                             categories.map((cat, index) => {
-                                return(
+                                return (
                                     <CategoryLi key={index}>
                                         <CategoryItems>
                                             {cat.title}
