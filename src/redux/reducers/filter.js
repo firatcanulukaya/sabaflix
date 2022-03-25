@@ -1,7 +1,8 @@
-import {SET_FILTER, REMOVE_FILTER} from "../types";
+import {SET_FILTER, REMOVE_FILTER, GET_CATEGORIES} from "../types";
 
 const initial_state = {
-    filter: null
+    filter: null,
+    categories: null
 }
 
 const reducer = (state = initial_state, action) => {
@@ -15,6 +16,11 @@ const reducer = (state = initial_state, action) => {
             return {
                 ...state,
                 filter: null
+            }
+        case GET_CATEGORIES:
+            return {
+                ...state,
+                categories: action.payload
             }
         default:
             return state
