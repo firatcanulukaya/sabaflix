@@ -22,17 +22,6 @@ const Navbar = () => {
             disabled: true
         },
         {
-            name: "Last Added",
-            link: '#lastAdded',
-            disabled: false
-
-        },
-        {
-            name: "Most Popular",
-            link: '#mostPopular',
-            disabled: false
-        },
-        {
             name: "All",
             link: '/all',
             disabled: false
