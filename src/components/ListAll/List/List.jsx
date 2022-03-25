@@ -7,6 +7,7 @@ import {useEffect} from "react";
 const List = () => {
     const dispatch = useDispatch();
     const {content} = useSelector(state => state.contentAll);
+    const {filter} = useSelector(state => state.filter);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,25 +16,38 @@ const List = () => {
         fetchData()
     }, [dispatch]);
 
-    if(content === null || undefined) return <Loading>Loading...</Loading>
+    if (content === null || undefined) return <Loading>Loading...</Loading>
     return (
         <ListContainer>
             <Container>
                 <Row>
                     <ListHeader>Showing all contents</ListHeader>
                 </Row>
-                <Row>
+                <Row id="list"
+                     style={content.filter(cat => cat.categoryId === filter).length > 0 ? {} : {justifyContent: "center"}}>
                     {
                         content.length > 0 ?
-                            content.map((item, index) => {
-                                return (
-                                    <ListContent key={index}>
-                                        <ListContentContainer>
-                                            <ListImg src={item.banner} alt={item.title}/>
-                                        </ListContentContainer>
-                                    </ListContent>
-                                )
-                            })
+                            filter === null ?
+                                content.map((item, index) => {
+                                    return (
+                                        <ListContent key={index}>
+                                            <ListContentContainer>
+                                                <ListImg src={item.banner} alt={item.title}/>
+                                            </ListContentContainer>
+                                        </ListContent>
+                                    )
+                                })
+                                : content.filter(cat => cat.categoryId === filter).length > 0 ?
+                                    content.filter(cat => cat.categoryId === filter).map((item, index) => {
+                                        return (
+                                            <ListContent key={index}>
+                                                <ListContentContainer>
+                                                    <ListImg src={item.banner} alt={item.title}/>
+                                                </ListContentContainer>
+                                            </ListContent>
+                                        )
+                                    })
+                                    : <Loading>No content found</Loading>
                             :
                             <ListContent>
                                 <ListHeader>Nothing to show.</ListHeader>

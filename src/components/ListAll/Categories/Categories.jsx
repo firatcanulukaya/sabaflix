@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {
     CategoriesContainer,
     CategoriesList,
@@ -8,22 +7,22 @@ import {
     CategoryItems,
     CategoryLi,
     CategoryUl,
-    CatSticky,
+    CatSticky, CatStickySubTitle,
     CatStickyTitle
 } from "./style";
 import arrow from "../../../assets/img/ArrowDown.svg"
+import {useDispatch, useSelector} from "react-redux";
+import {getCategories, setFilter} from "../../../redux/actions/filter";
+import {Loading} from "../../../assets/style/styled";
 
 const Categories = () => {
-    const [categories, setCategories] = useState([]);
+    const dispatch = useDispatch();
+    const {categories} = useSelector(state => state.filter);
     const [categoryHeight, setCategoryHeight] = useState(0);
+
     useEffect(() => {
-        axios.get("http://10.80.0.168:8080/contentCategory")
-            .then(res => {
-                if (res.status === 200) {
-                    setCategories(res.data.message);
-                }
-            })
-    }, []);
+        dispatch(getCategories())
+    }, [dispatch]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -31,42 +30,38 @@ const Categories = () => {
         }, 200)
     }, []);
 
+    const handleChangeCategory = (cat) => {
+        dispatch(setFilter(parseInt(cat)));
+    };
+
+    if (categories === null) return <Loading>Loading...</Loading>
+
     return (
         <CategoriesContainer height={categoryHeight}>
             <CatSticky>
-
-
                 <CategoriesList>
-
                     <CategoryHeader>
                         <CatStickyTitle>
                             Categories
                         </CatStickyTitle>
-
                         <CategoryArrow src={arrow}/>
                     </CategoryHeader>
-
                     <CategoryUl>
-
-
                         {
-                            categories.map((cat, index) => {
+                            categories.length > 0 ? categories.map((cat, index) => {
                                 return (
-                                    <CategoryLi key={index}>
-                                        <CategoryItems>
+                                    <CategoryLi key={index}
+                                                onClick={e => handleChangeCategory(e.target.getAttribute("id"))}>
+                                        <CategoryItems id={cat.id}>
                                             {cat.title}
                                         </CategoryItems>
                                     </CategoryLi>
                                 )
-                            })
+                            }) : <CatStickySubTitle>There is no any category</CatStickySubTitle>
                         }
-
                     </CategoryUl>
-
-
+                    <button onClick={() => dispatch({type: "REMOVE_FILTER"})}>clear filter</button>
                 </CategoriesList>
-
-
             </CatSticky>
         </CategoriesContainer>
     )
