@@ -1,3 +1,4 @@
+import {SET_FILTER, REMOVE_FILTER} from "../types";
 
 const initial_state = {
     filter: null
@@ -5,6 +6,16 @@ const initial_state = {
 
 const reducer = (state = initial_state, action) => {
     switch (action.type) {
+        case SET_FILTER:
+            return {
+                ...state,
+                filter: action.payload
+            }
+        case REMOVE_FILTER:
+            return {
+                ...state,
+                filter: null
+            }
         default:
             return state
     }
