@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {
     CategoriesContainer,
     CategoriesList,
-    CategoryArrow,
+    CategoryArrow, CategoryButton,
     CategoryHeader,
     CategoryItems,
     CategoryLi,
@@ -60,7 +60,7 @@ const Categories = () => {
                             }) : <CatStickySubTitle>There is no any category</CatStickySubTitle>
                         }
                     </CategoryUl>
-                    <button onClick={() => dispatch({type: "REMOVE_FILTER"})}>clear filter</button>
+                    <CategoryButton onClick={() => dispatch({type: "REMOVE_FILTER"})}>Clear Filter</CategoryButton>
                 </CategoriesList>
             </CatSticky>
         </CategoriesContainer>
