@@ -17,7 +17,7 @@ import {Loading} from "../../../assets/style/styled";
 
 const Categories = () => {
     const dispatch = useDispatch();
-    const {categories} = useSelector(state => state.filter);
+    const {categories, filter} = useSelector(state => state.filter);
     const [categoryHeight, setCategoryHeight] = useState(0);
 
     useEffect(() => {
@@ -60,7 +60,8 @@ const Categories = () => {
                             }) : <CatStickySubTitle>There is no any category</CatStickySubTitle>
                         }
                     </CategoryUl>
-                    <CategoryButton onClick={() => dispatch({type: "REMOVE_FILTER"})}>Clear Filter</CategoryButton>
+                    {filter === null ? '' :
+                        <CategoryButton onClick={() => dispatch({type: "REMOVE_FILTER"})}>Clear Filter</CategoryButton>}
                 </CategoriesList>
             </CatSticky>
         </CategoriesContainer>
