@@ -36,6 +36,7 @@ export const CatStickySubTitle = styled.h3`
 export const CategoriesList = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 `;
 
 export const CategoryHeader = styled.div`
@@ -73,5 +74,26 @@ export const CategoryItems = styled.span`
 
   &:hover {
     opacity: 1;
+  }
+`;
+
+export const CategoryButton = styled.button`
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${colors.primaryColor};
+  border: 2px solid ${colors.primaryColor};
+  border-radius: 5px;
+  color: ${colors.white};
+  font-size: 1.2rem;
+  font-family: "Netflix Sans", sans-serif;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    background: none;
+    color: ${colors.primaryColor};
   }
 `;
