@@ -5,13 +5,15 @@ import contentAll from "./reducers/contentAll";
 import lastAdded from "./reducers/lastAdded";
 import popular from "./reducers/popular";
 import header from "./reducers/header";
+import filter from "./reducers/filter";
 
 const rootReducer = combineReducers({
     util,
     contentAll,
     lastAdded,
     popular,
-    header
+    header,
+    filter
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
