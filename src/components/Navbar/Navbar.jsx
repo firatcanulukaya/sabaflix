@@ -1,4 +1,4 @@
-import {Nav, NavHamburger, NavInput, NavLink, NavLinks, NavLogo, NavSearchBox} from "./style";
+import {Nav, NavbarLogo, NavHamburger, NavInput, NavLink, NavLinks, NavLogo, NavSearchBox} from "./style";
 import logo from "../../assets/img/logo.svg";
 import hamburger from "../../assets/img/hamburger.svg"
 import {useEffect} from "react";
@@ -39,15 +39,16 @@ const Navbar = () => {
         })
     }, [])
 
-    return(
+    return (
         <Nav id="navbar">
             <NavHamburger>
                 <img src={hamburger} alt={"Hamburger Menu"}/>
             </NavHamburger>
             <NavLogo>
-                <img src={logo} alt={"Sabaflix Logo"}/>
+                <a href="/"><NavbarLogo src={logo} alt={"Sabaflix Logo"}/></a>
                 <NavLinks>
-                    {navLinks.map((item, index) => <NavLink href={item.link} key={index} disabled={item.disabled}>{item.name}</NavLink> )}
+                    {navLinks.map((item, index) => <NavLink href={item.link} key={index}
+                                                            disabled={item.disabled}>{item.name}</NavLink>)}
                 </NavLinks>
             </NavLogo>
             <NavSearchBox>

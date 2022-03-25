@@ -147,3 +147,5 @@ export const NavInput = styled.input`
     width: 100%;
   }
 `
+
+export const NavbarLogo = styled.img``;
