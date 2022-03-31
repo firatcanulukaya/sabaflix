@@ -17,7 +17,7 @@ import sabaflixSeries from "../../../assets/img/series.svg"
 const List = () => {
     const dispatch = useDispatch();
     const {content} = useSelector(state => state.contentAll);
-    const {filter} = useSelector(state => state.filter);
+    const {filter, categories} = useSelector(state => state.filter);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,7 +31,9 @@ const List = () => {
         <ListContainer>
             <Container>
                 <Row>
-                    <ListHeader>Showing all contents</ListHeader>
+                    <ListHeader>{
+                        filter ? `Showing ${categories.find(cat => cat.id === filter).slug} contents` : 'Showing all contents'
+                    }</ListHeader>
                 </Row>
                 <Row id="list"
                      style={content.filter(cat => cat.categoryId === filter).length > 0 ? {} : {justifyContent: "center"}}>
