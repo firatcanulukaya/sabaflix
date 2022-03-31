@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer";
 import Homepage from "./components/Homepage";
 import ListAll from "./components/ListAll/ListAll";
 import NotFound from "./components/404/NotFound";
+import SearchResult from "./components/SearchResult/SearchResult";
 
 import {
     Routes,
@@ -17,6 +18,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Homepage/>}/>
                 <Route path="/all" element={<ListAll/>}/>
+                <Route path="/search" element={<SearchResult/>}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
             <Footer/>
