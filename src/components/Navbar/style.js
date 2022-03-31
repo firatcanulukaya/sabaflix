@@ -71,7 +71,7 @@ export const NavLinks = styled.div`
   justify-content: center;
 `
 
-export const NavLink = styled.a`
+export const NavLink = styled.p`
   color: #fff;
   text-decoration: none;
   margin-left: 30px;
@@ -81,6 +81,7 @@ export const NavLink = styled.a`
   font-weight: 500;
   font-size: 16px;
   line-height: 31px;
+  cursor: pointer;
 
   &:hover {
     color: ${colors.primaryColor};

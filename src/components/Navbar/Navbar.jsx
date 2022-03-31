@@ -1,10 +1,12 @@
-import {Nav, NavbarLogo, NavHamburger, NavInput, NavLink, NavLinks, NavLogo, NavSearchBox} from "./style";
+import {Nav, NavbarLogo, NavHamburger, NavLink, NavLinks, NavLogo, NavSearchBox} from "./style";
 import logo from "../../assets/img/logo.svg";
 import hamburger from "../../assets/img/hamburger.svg"
 import {useEffect} from "react";
 import SearchBox from "./SearchBox";
+import {useNavigate} from "react-router-dom";
 
 const Navbar = () => {
+    const navigate = useNavigate();
 
     const navLinks = [
         {
@@ -14,12 +16,12 @@ const Navbar = () => {
         },
         {
             name: 'Movies',
-            link: '/',
+            link: '/movies',
             disabled: true
         },
         {
             name: 'Series',
-            link: '/',
+            link: '/series',
             disabled: true
         },
         {
@@ -48,7 +50,7 @@ const Navbar = () => {
             <NavLogo>
                 <a href="/"><NavbarLogo src={logo} alt={"Sabaflix Logo"}/></a>
                 <NavLinks>
-                    {navLinks.map((item, index) => <NavLink href={item.link} key={index}
+                    {navLinks.map((item, index) => <NavLink onClick={() => navigate(`${item.link}`)} key={index}
                                                             disabled={item.disabled}>{item.name}</NavLink>)}
                 </NavLinks>
             </NavLogo>
