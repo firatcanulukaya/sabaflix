@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import {
     PopularContainer,
     PopularHeader,
@@ -12,30 +11,18 @@ import arrowLeft from "../../assets/img/ArrowLeft.svg";
 import PopularItem from "./PopularItem";
 
 const Popular = () => {
-    const wrap = document.getElementById('wrapper')
-    const [scroll, setScroll] = useState([{perClick: 0, amount: 0}]);
-
-    const scrollRight = () => {
-        console.log("sad")
-        wrap.scrollTo({
-            top: 0,
-            left: 500,
-            behavior: "smooth"
-        })
-        if (scroll.amount < 0) {
-            setScroll([{...scroll, amount: 0}])
-        }
-    }
 
     const scrollLeft = () => {
-        if (scroll.amount <= wrap.scrollWidth - wrap.clientWidth) {
-            wrap.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "smooth"
-            })
-        }
-    }
+        const slider = document.getElementById('wrapper');
+        console.log(slider.scrollLeft -= slider.offsetWidth);
+        slider.scrollLeft -= slider.offsetWidth;
+    };
+
+    const scrollRight = () => {
+        const slider = document.getElementById('wrapper');
+        console.log(slider.scrollLeft += slider.offsetWidth);
+        slider.scrollLeft += slider.offsetWidth;
+    };
 
     return (
 

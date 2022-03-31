@@ -18,8 +18,13 @@ export const PopularHeader = styled.h1`
 
 export const PopularOverflow = styled.div`
   display: flex;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: scroll;
   position: relative;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const PopularContent = styled.div`
@@ -48,7 +53,7 @@ export const PopularContent = styled.div`
 
   @media (min-width: 1200px) {
     max-width: 20%;
-    margin-left: 9%;
+    margin-left: 11rem;
   }
 `
 
@@ -60,12 +65,12 @@ export const PopularContentContainer = styled.div`
     content: "${props => props.indexID + 1}";
     position: absolute;
     color: ${colors.secondaryColor};
-    font-size: calc(0.74 * 50vmin);
+    font-size: calc(0.64 * 50vmin);
     line-height: 0.7;
     bottom: 1rem;
     font-weight: bold;
     letter-spacing: -5vmin;
-    left: 0;
+    left: 1.5rem;
     -webkit-text-stroke: 0.5vmin ${colors.white};
     text-shadow: 1vmin 0 4vmin ${colors.secondaryColor};
     transform: translate(-100%, 0);
