@@ -52,7 +52,7 @@ const Categories = () => {
                                 return (
                                     <CategoryLi key={index}
                                                 onClick={e => handleChangeCategory(e.target.getAttribute("id"))}>
-                                        <CategoryItems id={cat.id}>
+                                        <CategoryItems id={cat.id} className={`${cat.id === filter ? 'active' : ''}`}>
                                             {cat.title}
                                         </CategoryItems>
                                     </CategoryLi>

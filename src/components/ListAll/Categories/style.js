@@ -75,6 +75,10 @@ export const CategoryItems = styled.span`
   &:hover {
     opacity: 1;
   }
+  
+  &.active{
+    color: ${colors.primaryColor};
+  }
 `;
 
 export const CategoryButton = styled.button`
