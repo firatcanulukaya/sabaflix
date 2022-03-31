@@ -21,28 +21,34 @@ export const ListContent = styled.div`
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
-  
+
   @media (max-width: 768px) {
     max-width: 50%;
   }
-  
+
   @media (min-width: 768px) {
     max-width: 33%;
   }
-  
+
   @media (min-width: 992px) {
     max-width: 25%;
   }
-  
+
   @media (min-width: 1200px) {
     max-width: 20%;
   }
-  
+
 `
 
 export const ListContentContainer = styled.div`
-    width: 200px;
-    height: 300px;
+  width: 200px;
+  height: 300px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  
+  &:hover{
+    transform: scale(1.3);
+  }
 `
 
 export const ListImg = styled.img`
@@ -51,11 +57,48 @@ export const ListImg = styled.img`
   object-fit: cover;
   object-position: center;
   border-radius: 5px;
-  transition: all 0.3s ease-in-out;
   opacity: 0.8;
-  
-  &:hover {
-    opacity: 1;
-    transform: scale(1.3);
+`
+
+export const ListInformation = styled.div`
+  background: ${colors.black};
+  opacity: 0.9;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  color: ${colors.white};
+  font-family: "Netflix Sans", sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  @media (max-width: 768px) {
+    height: 30px;
   }
+
+  @media (min-width: 768px) {
+    height: 40px;
+  }
+
+  @media (min-width: 992px) {
+    height: 50px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 60px;
+  }
+`
+
+export const ListInfoLogo = styled.img`
+  width: 40%;
+`
+
+export const ListInfoPrice = styled.p`
+  color: ${colors.white};
+  font-size: 1rem
 `

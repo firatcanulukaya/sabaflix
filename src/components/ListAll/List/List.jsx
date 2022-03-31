@@ -1,8 +1,18 @@
-import {ListContainer, ListContent, ListContentContainer, ListHeader, ListImg} from "./style";
+import {
+    ListContainer,
+    ListContent,
+    ListContentContainer,
+    ListHeader,
+    ListImg,
+    ListInfoLogo, ListInfoPrice,
+    ListInformation
+} from "./style";
 import {Container, Loading, Row} from "../../../assets/style/styled";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllContent} from "../../../redux/actions/contentAll";
 import {useEffect} from "react";
+import sabaflixOriginal from "../../../assets/img/original.svg"
+import sabaflixSeries from "../../../assets/img/series.svg"
 
 const List = () => {
     const dispatch = useDispatch();
@@ -33,6 +43,11 @@ const List = () => {
                                         <ListContent key={index}>
                                             <ListContentContainer>
                                                 <ListImg src={item.banner} alt={item.title}/>
+                                                <ListInformation>
+                                                    <ListInfoPrice>{item.price} ₺</ListInfoPrice>
+                                                    <ListInfoLogo
+                                                        src={item.isSeries ? sabaflixOriginal : sabaflixSeries}/>
+                                                </ListInformation>
                                             </ListContentContainer>
                                         </ListContent>
                                     )
@@ -43,6 +58,11 @@ const List = () => {
                                             <ListContent key={index}>
                                                 <ListContentContainer>
                                                     <ListImg src={item.banner} alt={item.title}/>
+                                                    <ListInformation>
+                                                        <ListInfoPrice>{item.price} ₺</ListInfoPrice>
+                                                        <ListInfoLogo
+                                                            src={item.isSeries ? sabaflixOriginal : sabaflixSeries}/>
+                                                    </ListInformation>
                                                 </ListContentContainer>
                                             </ListContent>
                                         )
