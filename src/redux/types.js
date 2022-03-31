@@ -17,3 +17,6 @@ export const GET_POPULAR = 'GET_POPULAR';
 
 //HEADER
 export const GET_HEADER = 'GET_HEADER';
+
+//SEARCH
+export const GET_SEARCH = 'GET_SEARCH';

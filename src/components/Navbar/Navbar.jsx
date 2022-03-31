@@ -2,6 +2,7 @@ import {Nav, NavbarLogo, NavHamburger, NavInput, NavLink, NavLinks, NavLogo, Nav
 import logo from "../../assets/img/logo.svg";
 import hamburger from "../../assets/img/hamburger.svg"
 import {useEffect} from "react";
+import SearchBox from "./SearchBox";
 
 const Navbar = () => {
 
@@ -52,7 +53,7 @@ const Navbar = () => {
                 </NavLinks>
             </NavLogo>
             <NavSearchBox>
-                <NavInput type="text" placeholder="Search"/>
+                <SearchBox/>
             </NavSearchBox>
         </Nav>
     )
