@@ -43,6 +43,16 @@ export const LastContent = styled.div`
 export const LastContentContainer = styled.div`
     width: 200px;
     height: 300px;
+
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 220px;
+  }
+
+  @media (min-width: 768px) {
+    width: 200px;
+    height: 300px;
+  }
 `
 
 export const LastImg = styled.img`
