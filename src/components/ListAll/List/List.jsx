@@ -35,8 +35,7 @@ const List = () => {
                         filter ? `Showing ${categories.find(cat => cat.id === filter).slug} contents` : 'Showing all contents'
                     }</ListHeader>
                 </Row>
-                <Row id="list"
-                     style={content.filter(cat => cat.categoryId === filter).length > 0 ? {} : {justifyContent: "center"}}>
+                <Row id="list">
                     {
                         content.length > 0 ?
                             filter === null ?
