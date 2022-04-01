@@ -10,13 +10,16 @@ const SearchBox = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        dispatch(getSearch(searchValue))
-        navigate(`/search?${searchValue}`)
+        if (searchValue.length > 0) {
+            dispatch(getSearch(searchValue));
+            navigate("/search/" + searchValue);
+        }
     }, [dispatch, searchValue]);
 
     return (
         <>
-            <NavInput type="text" placeholder="Search" onChange={e => setSearchValue(e.target.value)}/>
+            <NavInput type="text" placeholder="Search" onChange={e => setSearchValue(e.target.value)}
+                      value={searchValue}/>
         </>
     )
 }
