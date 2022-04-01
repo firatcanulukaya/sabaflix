@@ -7,7 +7,7 @@ const NotFound = () => {
     return (
         <NotFoundContainer>
             Not Found
-            <NotFoundBack onClick={() => navigate("/")}>Homepage</NotFoundBack>
+            <NotFoundBack onClick={() => navigate(-1)}>Go Back</NotFoundBack>
         </NotFoundContainer>
     )
 }
