@@ -14,13 +14,11 @@ const Popular = () => {
 
     const scrollLeft = () => {
         const slider = document.getElementById('wrapper');
-        console.log(slider.scrollLeft -= slider.offsetWidth);
         slider.scrollLeft -= slider.offsetWidth;
     };
 
     const scrollRight = () => {
         const slider = document.getElementById('wrapper');
-        console.log(slider.scrollLeft += slider.offsetWidth);
         slider.scrollLeft += slider.offsetWidth;
     };
 
