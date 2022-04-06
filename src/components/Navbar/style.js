@@ -112,7 +112,7 @@ export const NavLinks = styled.div`
     display: none;
   }
   @media only screen and (min-width: 900px) {
-    display: block;
+    display: flex;
   }
 `
 
