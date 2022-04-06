@@ -45,12 +45,29 @@ const Navbar = () => {
     }, [])
 
     useEffect(() => {
-        document.getElementById('navLinks').classList.remove('active');
+        const navbar = document.getElementById('navLinks');
+        const body = document.body;
+
+        navbar.classList.remove('active');
+
+        if (navbar.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = 'auto';
+        }
     }, [location])
 
     const handleNavbar = () => {
         const navbar = document.getElementById('navLinks');
+        const body = document.body;
+
         navbar.classList.toggle('active');
+
+        if (navbar.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = 'auto';
+        }
     }
 
     return (
