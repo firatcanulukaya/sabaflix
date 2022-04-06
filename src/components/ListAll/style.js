@@ -20,6 +20,16 @@ export const ColSixty = styled.div`
   width: 80%;
   height: 100%;
   display: flex;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+  @media only screen and (min-width: 600px) {
+    width: 100%;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 80%;
+  }
 `
 
 export const ColForty = styled.div`
