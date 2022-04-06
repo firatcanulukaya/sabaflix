@@ -14,7 +14,7 @@ const SearchBox = () => {
             dispatch(getSearch(searchValue));
             navigate("/search/" + searchValue);
         }
-    }, [dispatch, searchValue]);
+    }, [dispatch, searchValue, navigate]);
 
     return (
         <>
