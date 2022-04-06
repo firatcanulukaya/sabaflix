@@ -4,10 +4,11 @@ import hamburger from "../../assets/img/hamburger.svg"
 import cancel from "../../assets/img/Cancel.svg";
 import {useEffect} from "react";
 import SearchBox from "./SearchBox";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const navLinks = [
         {
@@ -42,6 +43,10 @@ const Navbar = () => {
             }
         })
     }, [])
+
+    useEffect(() => {
+        document.getElementById('navLinks').classList.remove('active');
+    }, [location])
 
     const handleNavbar = () => {
         const navbar = document.getElementById('navLinks');
