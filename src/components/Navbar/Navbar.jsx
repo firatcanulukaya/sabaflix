@@ -1,6 +1,7 @@
-import {Nav, NavbarLogo, NavHamburger, NavLink, NavLinks, NavLogo, NavSearchBox} from "./style";
+import {MobileNavbarClose, Nav, NavbarLogo, NavHamburger, NavLink, NavLinks, NavLogo, NavSearchBox} from "./style";
 import logo from "../../assets/img/logo.svg";
 import hamburger from "../../assets/img/hamburger.svg"
+import cancel from "../../assets/img/Cancel.svg";
 import {useEffect} from "react";
 import SearchBox from "./SearchBox";
 import {useNavigate} from "react-router-dom";
@@ -42,17 +43,27 @@ const Navbar = () => {
         })
     }, [])
 
+    const handleNavbar = () => {
+        const navbar = document.getElementById('navLinks');
+        navbar.classList.toggle('active');
+    }
+
     return (
         <Nav id="navbar">
-            <NavHamburger>
+            <NavHamburger onClick={() => handleNavbar()}>
                 <img src={hamburger} alt={"Hamburger Menu"}/>
             </NavHamburger>
             <NavLogo>
-                <a href="/"><NavbarLogo src={logo} alt={"Sabaflix Logo"}/></a>
-                <NavLinks>
+
+                <NavbarLogo src={logo} alt={"Sabaflix Logo"} onClick={() => navigate('/')}/>
+
+                <NavLinks id="navLinks">
+                    <MobileNavbarClose src={cancel} onClick={() => handleNavbar()}/>
+                    <NavbarLogo src={logo} alt={"Sabaflix Logo"} onClick={() => navigate('/')}/>
                     {navLinks.map((item, index) => <NavLink onClick={() => navigate(`${item.link}`)} key={index}
                                                             disabled={item.disabled}>{item.name}</NavLink>)}
                 </NavLinks>
+
             </NavLogo>
             <NavSearchBox>
                 <SearchBox/>

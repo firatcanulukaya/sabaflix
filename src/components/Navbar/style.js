@@ -71,6 +71,10 @@ export const NavLinks = styled.div`
   justify-content: center;
   transition: all 0.3s ease-in-out;
 
+  img {
+    display: none;
+  }
+
   &.active {
     display: flex;
     justify-content: normal;
@@ -93,7 +97,11 @@ export const NavLinks = styled.div`
     p {
       margin: 0 !important;
     }
-    
+
+    img {
+      display: block;
+    }
+
   }
 
   @media only screen and (max-width: 600px) {
@@ -135,6 +143,13 @@ export const NavLink = styled.p`
           }
   };
 `
+
+export const MobileNavbarClose = styled.img`
+  position: absolute;
+  top: 2.1rem;
+  left: 2rem;
+  width: 35px !important;
+`;
 
 export const NavSearchBox = styled.div`
   display: flex;
