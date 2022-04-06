@@ -96,6 +96,7 @@ export const NavLinks = styled.div`
 
     p {
       margin: 0 !important;
+      font-size: 1.5rem;
     }
 
     img {
