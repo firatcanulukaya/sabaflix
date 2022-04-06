@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {
+    CancelIcon,
     CategoriesContainer,
     CategoriesList,
     CategoryArrow, CategoryButton,
@@ -10,10 +11,11 @@ import {
     CatSticky, CatStickySubTitle,
     CatStickyTitle
 } from "./style";
-import arrow from "../../../assets/img/ArrowDown.svg"
 import {useDispatch, useSelector} from "react-redux";
 import {getCategories, setFilter} from "../../../redux/actions/filter";
 import {Loading} from "../../../assets/style/styled";
+import arrow from "../../../assets/img/ArrowDown.svg"
+import cancel from "../../../assets/img/Cancel.svg"
 
 const Categories = () => {
     const dispatch = useDispatch();
@@ -34,10 +36,24 @@ const Categories = () => {
         dispatch(setFilter(parseInt(cat)));
     };
 
+    const handleCategories = () => {
+        const category = document.getElementById('CategoriesContainer')
+        const body = document.body;
+
+        category.classList.toggle('active')
+
+        if (category.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = 'auto';
+        }
+    }
+
     if (categories === null) return <Loading>Loading...</Loading>
 
     return (
-        <CategoriesContainer height={categoryHeight}>
+        <CategoriesContainer height={categoryHeight} id="CategoriesContainer">
+            <CancelIcon src={cancel} alt="cancel" onClick={() => handleCategories()}/>
             <CatSticky>
                 <CategoriesList>
                     <CategoryHeader>
