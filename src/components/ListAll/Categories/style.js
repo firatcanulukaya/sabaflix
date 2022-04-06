@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import {colors} from "../../../assets/style/styled";
 
-export const CategoriesContainer = styled.div`
-  min-height: ${props => props.height ? `${props.height}px` : "100vh"};
-  position: relative;
-`;
-
 export const CatSticky = styled.div`
   position: sticky;
   display: flex;
@@ -17,6 +12,49 @@ export const CatSticky = styled.div`
   padding: 1rem 0 1rem 1rem;
   border-radius: 5px;
   margin-left: 2rem;
+`;
+
+export const CategoriesContainer = styled.div`
+  min-height: ${props => props.height ? `${props.height}px` : "100vh"};
+  position: relative;
+
+  &.active {
+    display: flex;
+    background-color: ${colors.secondaryAltColor};
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    ${CatSticky} {
+      margin: 0 !important;
+      width: 80%;
+      position: relative;
+      display: block;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+    min-height: 0;
+  }
+  @media only screen and (min-width: 600px) {
+    display: none;
+    min-height: 0;
+  }
+  @media only screen and (min-width: 1200px) {
+    display: block;
+    min-height: ${props => props.height ? `${props.height}px` : "100vh"};
+  }
+`;
+
+export const CancelIcon = styled.img`
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 32px;
 `;
 
 export const CatStickyTitle = styled.h2`
@@ -75,8 +113,8 @@ export const CategoryItems = styled.span`
   &:hover {
     opacity: 1;
   }
-  
-  &.active{
+
+  &.active {
     color: ${colors.primaryColor};
   }
 `;
