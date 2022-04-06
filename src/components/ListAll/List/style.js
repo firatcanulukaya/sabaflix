@@ -13,6 +13,26 @@ export const ListHeader = styled.h1`
   font-family: "Netflix Sans", sans-serif;
   font-size: 2rem;
   margin-bottom: 50px;
+
+  p {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-decoration: underline ${colors.primaryAltcolor};
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+
+    @media (min-width: 1200px) {
+      display: none;
+    }
+
+  }
 `
 
 export const ListContent = styled.div`
@@ -45,8 +65,8 @@ export const ListContentContainer = styled.div`
   height: 300px;
   position: relative;
   transition: all 0.3s ease-in-out;
-  
-  &:hover{
+
+  &:hover {
     transform: scale(1.3);
   }
 `

@@ -26,14 +26,29 @@ const List = () => {
         fetchData()
     }, [dispatch]);
 
+    const handleCategories = () => {
+        const category = document.getElementById('CategoriesContainer')
+        const body = document.body;
+
+        category.classList.toggle('active')
+
+        if (category.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = 'auto';
+        }
+    }
+
     if (content === null || undefined) return <Loading>Loading...</Loading>
     return (
         <ListContainer>
             <Container>
                 <Row>
-                    <ListHeader>{
-                        filter ? `Showing ${categories.find(cat => cat.id === filter).slug} contents` : 'Showing all contents'
-                    }</ListHeader>
+                    <ListHeader>
+                        {filter ? `Showing ${categories.find(cat => cat.id === filter).slug} contents` : 'Showing all contents'}
+                        <br/>
+                        <p onClick={() => handleCategories()}>Show Categories</p>
+                    </ListHeader>
                 </Row>
                 <Row id="list">
                     {
