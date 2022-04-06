@@ -13,8 +13,8 @@ export const Nav = styled.nav`
   justify-content: space-between;
   padding: 30px 0 20px 30px;
   transition: all 0.3s ease-in-out;
-  
-  &.active{
+
+  &.active {
     background: ${colors.secondaryColor};
   }
 `
@@ -33,12 +33,12 @@ export const NavLogo = styled.div`
     width: 100%;
     gap: 0;
   }
-  
+
   @media only screen and (min-width: 900px) {
     width: auto;
     gap: 2rem;
   }
-  
+
   img {
     width: 277px;
     transition: all 0.3s ease-in-out;
@@ -56,10 +56,10 @@ export const NavLogo = styled.div`
 `
 
 export const NavHamburger = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
   @media only screen and (min-width: 900px) {
     display: none;
   }
@@ -69,6 +69,42 @@ export const NavLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
+
+  &.active {
+    display: flex;
+    justify-content: normal;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 3rem;
+    gap: 1rem;
+    background: ${colors.secondaryColor};
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+    margin: 0;
+
+    p {
+      margin: 0 !important;
+    }
+    
+  }
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+  @media only screen and (min-width: 600px) {
+    display: none;
+  }
+  @media only screen and (min-width: 900px) {
+    display: block;
+  }
 `
 
 export const NavLink = styled.p`
@@ -86,29 +122,18 @@ export const NavLink = styled.p`
   &:hover {
     color: ${colors.primaryColor};
   }
-  
+
   ${
-    props => {
-        if(props.disabled){
-            return`
+          props => {
+            if (props.disabled) {
+              return `
             cursor: not-allowed;
             color: ${colors.textPrimary};
             pointer-events: none;
             `
-        }
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-  display: none;
-  }
-  @media only screen and (min-width: 600px) {
-    display: none;
-  }
-  @media only screen and (min-width: 900px) {
-    display: block;
-  }
-  
+            }
+          }
+  };
 `
 
 export const NavSearchBox = styled.div`
@@ -149,4 +174,6 @@ export const NavInput = styled.input`
   }
 `
 
-export const NavbarLogo = styled.img``;
+export const NavbarLogo = styled.img`
+  cursor: pointer
+`;
