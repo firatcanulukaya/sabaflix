@@ -55,6 +55,17 @@ export const CancelIcon = styled.img`
   top: 1rem;
   left: 1rem;
   width: 32px;
+  display: none;
+
+  @media only screen and (max-width: 600px) {
+    display: block;
+  }
+  @media only screen and (min-width: 600px) {
+    display: block;
+  }
+  @media only screen and (min-width: 1200px) {
+    display: none;
+  }
 `;
 
 export const CatStickyTitle = styled.h2`
