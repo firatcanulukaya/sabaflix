@@ -49,8 +49,12 @@ const Categories = () => {
         }
     }
 
-    if (categories === null) return <Loading>Loading...</Loading>
+    useEffect(() => {
+        const category = document.getElementById('CategoriesContainer')
+        if(filter !== null) return category.classList.remove('active')
+    }, [filter]);
 
+    if (categories === null) return <Loading>Loading...</Loading>
     return (
         <CategoriesContainer height={categoryHeight} id="CategoriesContainer">
             <CancelIcon src={cancel} alt="cancel" onClick={() => handleCategories()}/>
