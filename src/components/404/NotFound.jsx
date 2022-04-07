@@ -6,6 +6,7 @@ const NotFound = () => {
 
     return (
         <NotFoundContainer>
+            <p style={{justifyContent: "center"}}>404</p>
             Not Found
             <NotFoundBack onClick={() => navigate(-1)}>Go Back</NotFoundBack>
         </NotFoundContainer>
