@@ -1,31 +1,29 @@
-import {useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
 import {
-    HeaderBtn, HeaderBtnIcon,
-    HeaderButtonContainer,
-    HeaderContainer,
-    HeaderContent,
-    HeaderContentContainer,
-    HeaderContentImg, HeaderDesc, HeaderRank, HeaderRankInfo, HeaderRankItems, HeaderRankScore
+    ModalCategories, ModalClose,
+    ModalContent,
+    ModalDesc,
+    ModalImgTop,
+    ModalInfo, ModalInnerContainer,
+    ModalTitleLogo,
+    ModalTop
 } from "./style";
-import sabaflixOriginal from "../../assets/img/original.svg"
-import sabaflixSeries from "../../assets/img/series.svg"
-import {Loading, SabaflixLogo} from "../../assets/style/styled";
-import shoppingBag from "../../assets/img/shoppingBag.svg";
-import infoIcon from "../../assets/img/info.svg"
-import {getHeader} from "../../redux/actions/header";
-import {getModal} from "../../redux/actions/modal";
+import {useSelector, useDispatch} from "react-redux";
+import {HeaderRank, HeaderRankInfo, HeaderRankItems, HeaderRankScore} from "../Header/style";
+import cancel from "../../assets/img/Cancel.svg";
+import {useEffect} from "react";
 
-const Header = () => {
+const Modal = () => {
     const dispatch = useDispatch();
-    const {content} = useSelector(state => state.header);
+    const {content, open} = useSelector(state => state.modal);
 
     useEffect(() => {
-        const fetchData = async () => {
-            await dispatch(getHeader());
-        };
-        fetchData()
-    }, [dispatch]);
+        if (open) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [open])
+
     let starRank;
 
     if (content?.rank >= 0 && content?.rank <= 20) {
@@ -70,33 +68,34 @@ const Header = () => {
         </HeaderRank>
     }
 
-
-    if (content === null || undefined) return <Loading>Loading...</Loading>
     return (
-        <HeaderContainer bg={content.background}>
-            <HeaderContentContainer>
-                <HeaderContent>
-                    <SabaflixLogo src={content.isSeries ? sabaflixSeries : sabaflixOriginal}/>
-                    <HeaderContentImg src={content.titleLogo} alt={"Logo"}/>
-                </HeaderContent>
+        <ModalInnerContainer className={open && 'active'}>
+            <ModalContent>
+                <ModalClose src={cancel} alt="Cancel" onClick={() => dispatch({type: "CLOSE_MODAL"})}/>
+                <ModalTop>
+                    <ModalImgTop src={content?.background} alt={"Banner"}/>
+                </ModalTop>
 
-                <HeaderRankInfo>
-                    {starRank}
-                    <HeaderRankScore>{content.rank}</HeaderRankScore>
-                </HeaderRankInfo>
+                <ModalTitleLogo src={content?.titleLogo} allt="Title Logo"/>
 
-                <HeaderDesc>
-                    {content.description}
-                </HeaderDesc>
+                <ModalInfo>
+                    <HeaderRankInfo>
+                        {starRank}
+                        <HeaderRankScore>{content?.rank}</HeaderRankScore>
+                    </HeaderRankInfo>
 
-                <HeaderButtonContainer>
-                    <HeaderBtn> <HeaderBtnIcon src={shoppingBag}/> Buy</HeaderBtn>
-                    <HeaderBtn isOpacity={true} onClick={() => dispatch(getModal(content.id))}><HeaderBtnIcon
-                        src={infoIcon}/>More Info</HeaderBtn>
-                </HeaderButtonContainer>
-            </HeaderContentContainer>
-        </HeaderContainer>
+                    <ModalDesc>
+                        {content?.description}
+                    </ModalDesc>
+
+                    <ModalCategories>
+                        {content?.contentCategory.title}
+                    </ModalCategories>
+                </ModalInfo>
+
+            </ModalContent>
+        </ModalInnerContainer>
     )
 }
 
-export default Header;
+export default Modal;

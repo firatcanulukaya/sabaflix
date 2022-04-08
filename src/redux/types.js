@@ -20,3 +20,7 @@ export const GET_HEADER = 'GET_HEADER';
 
 //SEARCH
 export const GET_SEARCH = 'GET_SEARCH';
+
+//MODAL
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';

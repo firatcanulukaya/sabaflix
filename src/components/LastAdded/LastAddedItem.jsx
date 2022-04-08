@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Loading} from "../../assets/style/styled";
 import {useEffect} from "react";
 import {getLastAdded} from "../../redux/actions/lastAdded";
+import {getModal} from "../../redux/actions/modal";
 
 const LastAddedItem = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const LastAddedItem = () => {
                 content.length > 0 ?
                     content.map((item, index) => {
                         return (
-                            <LastContent key={index}>
+                            <LastContent key={index} onClick={() => dispatch(getModal(item.id))}>
                                 <LastContentContainer>
                                     <LastImg src={item.banner} alt={item.title}/>
                                 </LastContentContainer>

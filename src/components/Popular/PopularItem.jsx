@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getPopular} from "../../redux/actions/popular";
 import {Loading} from "../../assets/style/styled";
+import {getModal} from "../../redux/actions/modal";
 
 const PopularItem = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const PopularItem = () => {
                 content.length > 0 ?
                     content.map((item, index) => {
                         return (
-                            <PopularContent key={index} id="content">
+                            <PopularContent key={index} id="content" onClick={() => dispatch(getModal(item.id))}>
                                 <PopularContentContainer indexID={index}>
                                     <PopularImg src={item.banner} alt={item.title}/>
                                 </PopularContentContainer>

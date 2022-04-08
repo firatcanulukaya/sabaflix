@@ -5,6 +5,7 @@ import Homepage from "./components/Homepage";
 import ListAll from "./components/ListAll/ListAll";
 import NotFound from "./components/404/NotFound";
 import SearchResult from "./components/SearchResult/SearchResult";
+import Modal from "./components/Modal/Modal";
 
 import {
     Routes,
@@ -14,6 +15,7 @@ import {
 const App = () => {
     return (
         <>
+            <Modal/>
             <Navbar/>
             <Routes>
                 <Route path="/" element={<Homepage/>}/>

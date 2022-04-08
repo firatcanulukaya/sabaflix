@@ -14,6 +14,7 @@ import {getAllContent} from "../../../redux/actions/contentAll";
 import {handleCategories} from "../../../util/utilFunctions";
 import sabaflixOriginal from "../../../assets/img/original.svg"
 import sabaflixSeries from "../../../assets/img/series.svg"
+import {getModal} from "../../../redux/actions/modal";
 
 const List = () => {
     const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const List = () => {
                             filter === null ?
                                 content.map((item, index) => {
                                     return (
-                                        <ListContent key={index}>
+                                        <ListContent key={index} onClick={() => dispatch(getModal(item.id))}>
                                             <ListContentContainer>
                                                 <ListImg src={item.banner} alt={item.title}/>
                                                 <ListInformation>
@@ -59,7 +60,7 @@ const List = () => {
                                 : content.filter(cat => cat.categoryId === filter).length > 0 ?
                                     content.filter(cat => cat.categoryId === filter).map((item, index) => {
                                         return (
-                                            <ListContent key={index}>
+                                            <ListContent key={index} onClick={() => dispatch(getModal(item.id))}>
                                                 <ListContentContainer>
                                                     <ListImg src={item.banner} alt={item.title}/>
                                                     <ListInformation>

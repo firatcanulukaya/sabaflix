@@ -1,4 +1,4 @@
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {Container, Loading, Row} from "../../assets/style/styled";
 import {
     SearchContainer,
@@ -10,8 +10,10 @@ import {
 } from "./style";
 import sabaflixOriginal from "../../assets/img/original.svg";
 import sabaflixSeries from "../../assets/img/series.svg";
+import {getModal} from "../../redux/actions/modal";
 
 const SearchResult = () => {
+    const dispatch = useDispatch();
     const {search} = useSelector(state => state.search);
 
     if (search === null) return <Loading>Loading...</Loading>
@@ -22,7 +24,7 @@ const SearchResult = () => {
                     {
                         search.length > 0 ?
                             search.map((item, index) => (
-                                <SearchContent key={index} id={"anan"}>
+                                <SearchContent key={index} onClick={() => dispatch(getModal(item.id))}>
                                     <SearchContentContainer>
                                         <SearchImg src={item.banner} alt={item.title}/>
                                         <SearchInformation>

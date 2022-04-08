@@ -7,6 +7,7 @@ import popular from "./reducers/popular";
 import header from "./reducers/header";
 import filter from "./reducers/filter";
 import search from "./reducers/search";
+import modal from "./reducers/modal";
 
 const rootReducer = combineReducers({
     util,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
     popular,
     header,
     filter,
-    search
+    search,
+    modal
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
