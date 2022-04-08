@@ -19,7 +19,7 @@ export const HeaderContainer = styled.section`
   @media (min-width: 992px) {
     box-shadow: inset 670px -81px 134px rgba(0, 0, 0, 0.6);
   }
-`
+`;
 
 export const HeaderContentContainer = styled.div`
   display: flex;
@@ -44,14 +44,14 @@ export const HeaderContentContainer = styled.div`
   @media (min-width: 1200px) {
     width: 60%;
   }
-`
+`;
 
 export const HeaderContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 1%;
-`
+`;
 
 export const HeaderContentImg = styled.img`
   max-width: 40%;
@@ -67,11 +67,11 @@ export const HeaderContentImg = styled.img`
   @media (min-width: 992px) {
     max-width: 70%;
   }
-  
+
   @media (min-width: 1200px) {
     max-width: 30%;
   }
-`
+`;
 
 export const HeaderDesc = styled.h1`
   font-size: 22px;
@@ -79,14 +79,14 @@ export const HeaderDesc = styled.h1`
   margin-bottom: 1rem;
   font-family: "Netflix Sans", sans-serif;
   width: 50%;
-`
+`;
 
 export const HeaderButtonContainer = styled.div`
   width: 50%;
   display: flex;
   margin-top: 10px;
   gap: 40px;
-`
+`;
 
 export const HeaderBtn = styled.a`
   background: ${p => p.isOpacity ? colors.whiteOpacity : colors.white};
@@ -112,7 +112,7 @@ export const HeaderBtn = styled.a`
   @media (min-width: 992px) {
     font-size: 22px;
   }
-`
+`;
 
 export const HeaderBtnIcon = styled.img`
   width: 30px;
@@ -129,5 +129,40 @@ export const HeaderBtnIcon = styled.img`
   @media (min-width: 992px) {
     width: 30px;
   }
+`;
 
-`
+export const HeaderRankInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 10px;
+`;
+
+export const HeaderRank = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1px;
+`;
+
+export const HeaderRankItems = styled.i`
+  color: ${colors.primaryColor};
+`;
+
+export const HeaderRankScore = styled.span`
+  color: ${colors.white};
+  background-color: ${colors.whiteOpacity};
+  font-family: "Netflix Sans", sans-serif;
+  padding: 1px 10px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 16px;
+  }
+`;

@@ -6,7 +6,7 @@ import {
     HeaderContainer,
     HeaderContent,
     HeaderContentContainer,
-    HeaderContentImg, HeaderDesc
+    HeaderContentImg, HeaderDesc, HeaderRank, HeaderRankInfo, HeaderRankItems, HeaderRankScore
 } from "./style";
 import sabaflixOriginal from "../../assets/img/original.svg"
 import sabaflixSeries from "../../assets/img/series.svg"
@@ -25,6 +25,54 @@ const Header = () => {
         };
         fetchData()
     }, [dispatch]);
+    let starRank;
+
+    // <HeaderRankItems className="fa-solid fa-star"/>
+    // <HeaderRankItems className="fa-regular fa-star"/>
+    // <HeaderRankItems className="fa-solid fa-star-half-stroke"/>
+
+    if (content?.rank >= 0 && content?.rank <= 20) {
+        starRank = <HeaderRank>
+            <HeaderRankItems className="fa-solid fa-star-half-stroke"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+        </HeaderRank>
+    } else if (content?.rank >= 21 && content?.rank <= 40) {
+        starRank = <HeaderRank>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star-half-stroke"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+        </HeaderRank>
+    } else if (content?.rank >= 41 && content?.rank <= 60) {
+        starRank = <HeaderRank>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star-half-stroke"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+        </HeaderRank>
+    } else if (content?.rank >= 61 && content?.rank <= 80) {
+        starRank = <HeaderRank>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star-half-stroke"/>
+            <HeaderRankItems className="fa-regular fa-star"/>
+        </HeaderRank>
+    } else if (content?.rank >= 81 && content?.rank <= 100) {
+        starRank = <HeaderRank>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star"/>
+            <HeaderRankItems className="fa-solid fa-star"/>
+        </HeaderRank>
+    }
+
 
     if (content === null || undefined) return <Loading>Loading...</Loading>
     return (
@@ -34,6 +82,12 @@ const Header = () => {
                     <SabaflixLogo src={content.isSeries ? sabaflixSeries : sabaflixOriginal}/>
                     <HeaderContentImg src={content.titleLogo} alt={"Logo"}/>
                 </HeaderContent>
+
+                <HeaderRankInfo>
+                    {starRank}
+                    <HeaderRankScore>{content.rank}</HeaderRankScore>
+                </HeaderRankInfo>
+
                 <HeaderDesc>
                     {content.description}
                 </HeaderDesc>
