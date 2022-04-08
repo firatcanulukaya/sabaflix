@@ -39,7 +39,12 @@ const Categories = () => {
 
     useEffect(() => {
         const category = document.getElementById('CategoriesContainer')
-        if(filter !== null) return category.classList.remove('active')
+        const body = document.body;
+        if (filter !== null) {
+            category.classList.remove('active')
+            body.style.overflow = 'auto';
+        }
+
     }, [filter]);
 
     if (categories === null) return <Loading>Loading...</Loading>
