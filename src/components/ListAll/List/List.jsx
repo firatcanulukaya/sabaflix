@@ -1,3 +1,4 @@
+import {useEffect} from "react";
 import {
     ListContainer,
     ListContent,
@@ -10,7 +11,7 @@ import {
 import {Container, Loading, Row} from "../../../assets/style/styled";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllContent} from "../../../redux/actions/contentAll";
-import {useEffect} from "react";
+import {handleCategories} from "../../../util/utilFunctions";
 import sabaflixOriginal from "../../../assets/img/original.svg"
 import sabaflixSeries from "../../../assets/img/series.svg"
 
@@ -25,19 +26,6 @@ const List = () => {
         };
         fetchData()
     }, [dispatch]);
-
-    const handleCategories = () => {
-        const category = document.getElementById('CategoriesContainer')
-        const body = document.body;
-
-        category.classList.toggle('active')
-
-        if (category.classList.contains('active')) {
-            body.style.overflow = 'hidden';
-        } else {
-            body.style.overflow = 'auto';
-        }
-    }
 
     if (content === null || undefined) return <Loading>Loading...</Loading>
     return (

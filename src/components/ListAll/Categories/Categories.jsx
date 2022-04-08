@@ -13,6 +13,7 @@ import {
 } from "./style";
 import {useDispatch, useSelector} from "react-redux";
 import {getCategories, setFilter} from "../../../redux/actions/filter";
+import {handleCategories} from "../../../util/utilFunctions";
 import {Loading} from "../../../assets/style/styled";
 import arrow from "../../../assets/img/ArrowDown.svg"
 import cancel from "../../../assets/img/Cancel.svg"
@@ -35,19 +36,6 @@ const Categories = () => {
     const handleChangeCategory = (cat) => {
         dispatch(setFilter(parseInt(cat)));
     };
-
-    const handleCategories = () => {
-        const category = document.getElementById('CategoriesContainer')
-        const body = document.body;
-
-        category.classList.toggle('active')
-
-        if (category.classList.contains('active')) {
-            body.style.overflow = 'hidden';
-        } else {
-            body.style.overflow = 'auto';
-        }
-    }
 
     useEffect(() => {
         const category = document.getElementById('CategoriesContainer')
