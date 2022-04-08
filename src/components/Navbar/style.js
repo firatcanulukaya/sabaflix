@@ -168,6 +168,11 @@ export const NavSearchBox = styled.div`
   @media only screen and (min-width: 600px) {
     display: none;
   }
+  
+  @media only screen and (min-width: 900px) {
+    display: block;
+  }
+  
   @media only screen and (min-width: 1200px) {
     display: block;
   }
