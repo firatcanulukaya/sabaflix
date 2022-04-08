@@ -52,6 +52,10 @@ export const CategoriesContainer = styled.div`
   @media only screen and (min-width: 1200px) {
     display: block;
     min-height: ${props => props.height ? `${props.height}px` : "100vh"};
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: translateX(0);
   }
 `;
 
