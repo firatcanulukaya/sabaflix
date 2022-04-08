@@ -68,14 +68,14 @@ export const PopularContentContainer = styled.div`
   &::before {
     content: "${props => props.indexID + 1}";
     position: absolute;
-    color: ${colors.secondaryColor};
+    color: transparent;
     font-size: calc(0.64 * 50vmin);
     line-height: 0.7;
     bottom: 1rem;
     font-weight: bold;
     letter-spacing: -5vmin;
     left: 1.5rem;
-    -webkit-text-stroke: 0.5vmin ${colors.white};
+    -webkit-text-stroke: 0.5vmin ${colors.whiteOpacity};
     text-shadow: 1vmin 0 4vmin ${colors.secondaryColor};
     transform: translate(-100%, 0);
     z-index: -5;
