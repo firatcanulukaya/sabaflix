@@ -16,17 +16,16 @@ export const CatSticky = styled.div`
 
 export const CategoriesContainer = styled.div`
   min-height: ${props => props.height ? `${props.height}px` : "100vh"};
-  position: relative;
+  transition: transform .3s ease-in-out;
 
   &.active {
     display: flex;
     background-color: ${colors.secondaryAltColor};
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: 100;
+    transform: translateX(0);
+    transition: transform .3s ease-in-out;
 
     ${CatSticky} {
       margin: 0 !important;
@@ -37,12 +36,18 @@ export const CategoriesContainer = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
-    display: none;
     min-height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-999px);
   }
   @media only screen and (min-width: 600px) {
-    display: none;
     min-height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-999px);
   }
   @media only screen and (min-width: 1200px) {
     display: block;

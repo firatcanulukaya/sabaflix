@@ -69,7 +69,7 @@ export const NavLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease-in-out;
+  transition: transform 300ms ease-in-out;
 
   img {
     display: none;
@@ -91,8 +91,9 @@ export const NavLinks = styled.div`
     opacity: 1;
     visibility: visible;
     z-index: 100;
-    transition: all 0.3s ease-in-out;
     margin: 0;
+    transform: translateY(0);
+    transition: transform 300ms ease-in-out;
 
     p {
       margin: 0 !important;
@@ -106,13 +107,16 @@ export const NavLinks = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
-    display: none;
+    transform: translateY(-999px);
+    position: absolute;
   }
   @media only screen and (min-width: 600px) {
-    display: none;
+    transform: translateY(-999px);
+    position: absolute;
   }
   @media only screen and (min-width: 900px) {
-    display: flex;
+    transform: translateY(0);
+    position: relative;
   }
 `
 
