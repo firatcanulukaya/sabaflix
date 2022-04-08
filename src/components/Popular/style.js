@@ -21,7 +21,7 @@ export const PopularOverflow = styled.div`
   overflow-y: hidden;
   overflow-x: scroll;
   position: relative;
-  
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -35,6 +35,10 @@ export const PopularContent = styled.div`
   justify-content: center;
   position: relative;
   transition: all 0.4s ease-in-out;
+
+  &:first-child {
+    margin-left: 99px;
+  }
 
   @media (max-width: 768px) {
     max-width: 50%;
@@ -76,6 +80,14 @@ export const PopularContentContainer = styled.div`
     transform: translate(-100%, 0);
     z-index: -5;
     font-family: "Netflix Sans", sans-serif;
+
+    @media (max-width: 600px) {
+      font-size: calc(1 * 50vmin);
+    }
+
+    @media (min-width: 768px) {
+      font-size: calc(0.64 * 50vmin);
+    }
   }
 `
 
