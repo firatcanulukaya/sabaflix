@@ -27,10 +27,6 @@ const Header = () => {
     }, [dispatch]);
     let starRank;
 
-    // <HeaderRankItems className="fa-solid fa-star"/>
-    // <HeaderRankItems className="fa-regular fa-star"/>
-    // <HeaderRankItems className="fa-solid fa-star-half-stroke"/>
-
     if (content?.rank >= 0 && content?.rank <= 20) {
         starRank = <HeaderRank>
             <HeaderRankItems className="fa-solid fa-star-half-stroke"/>
