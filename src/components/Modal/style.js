@@ -28,6 +28,7 @@ export const ModalClose = styled.img`
   left: 1rem;
   width: 32px;
   cursor: pointer;
+  z-index: 10;
 `;
 
 export const ModalContent = styled.div`
@@ -46,6 +47,7 @@ export const ModalContent = styled.div`
 export const ModalTop = styled.div`
   width: 100%;
   height: 200px;
+  position: relative;
 `;
 
 export const ModalImgTop = styled.img`
@@ -56,6 +58,22 @@ export const ModalImgTop = styled.img`
   border-radius: 5px 5px 0 0;
 `;
 
+export const ModalTitleLogo = styled.img`
+  margin-top: 1rem;
+  width: 180px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const ModalTopBg = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+
 export const ModalInfo = styled.div`
   width: 100%;
   height: 100%;
@@ -63,11 +81,6 @@ export const ModalInfo = styled.div`
   flex-direction: column;
   padding: 20px;
   gap: 1rem;
-`;
-
-export const ModalTitleLogo = styled.img`
-  margin-top: 1rem;
-  width: 280px;
 `;
 
 export const ModalDesc = styled.p`

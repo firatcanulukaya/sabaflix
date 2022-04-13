@@ -5,7 +5,7 @@ import {
     ModalImgTop,
     ModalInfo, ModalInnerContainer,
     ModalTitleLogo,
-    ModalTop
+    ModalTop, ModalTopBg
 } from "./style";
 import {useSelector, useDispatch} from "react-redux";
 import {HeaderRank, HeaderRankInfo, HeaderRankItems, HeaderRankScore} from "../Header/style";
@@ -73,10 +73,11 @@ const Modal = () => {
             <ModalContent>
                 <ModalClose src={cancel} alt="Cancel" onClick={() => dispatch({type: "CLOSE_MODAL"})}/>
                 <ModalTop>
+                    <ModalTopBg>
+                        <ModalTitleLogo src={content?.titleLogo} allt="Title Logo"/>
+                    </ModalTopBg>
                     <ModalImgTop src={content?.background} alt={"Banner"}/>
                 </ModalTop>
-
-                <ModalTitleLogo src={content?.titleLogo} allt="Title Logo"/>
 
                 <ModalInfo>
                     <HeaderRankInfo>
