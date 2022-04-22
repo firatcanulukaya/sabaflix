@@ -35,6 +35,7 @@ export const PopularContent = styled.div`
   justify-content: center;
   position: relative;
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 
   &:first-child {
     margin-left: 99px;
