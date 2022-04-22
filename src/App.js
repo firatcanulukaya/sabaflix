@@ -6,6 +6,8 @@ import ListAll from "./components/ListAll/ListAll";
 import NotFound from "./components/404/NotFound";
 import SearchResult from "./components/SearchResult/SearchResult";
 import Modal from "./components/Modal/Modal";
+import Movies from "./components/Movies/Movies";
+import Series from "./components/Series/Series";
 
 import {
     Routes,
@@ -21,6 +23,8 @@ const App = () => {
                 <Route path="/" element={<Homepage/>}/>
                 <Route path="/all" element={<ListAll/>}/>
                 <Route path="/search/:search" element={<SearchResult/>}/>
+                <Route path="/movies" element={<Movies/>}/>
+                <Route path="/series" element={<Series/>}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
             <Footer/>

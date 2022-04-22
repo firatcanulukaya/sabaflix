@@ -19,12 +19,12 @@ const Navbar = () => {
         {
             name: 'Movies',
             link: '/movies',
-            disabled: true
+            disabled: false
         },
         {
             name: 'Series',
             link: '/series',
-            disabled: true
+            disabled: false
         },
         {
             name: "All",
